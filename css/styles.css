@@ -1154,6 +1154,41 @@ a {
     transform: translate(-50%, -50%) scale(0.48);
   }
 
+  .orb-large {
+    left: auto;
+    right: -90px;
+    bottom: -30px;
+    width: 230px;
+    height: 230px;
+  }
+
+  .orb-mid {
+    left: -70px;
+    right: auto;
+    bottom: auto;
+    top: -16px;
+    width: 180px;
+    height: 180px;
+  }
+
+  .orb-top {
+    left: auto;
+    right: -48px;
+    top: 64px;
+    width: 108px;
+    height: 108px;
+  }
+
+  .orb-small {
+    display: flex;
+    right: auto;
+    left: 18px;
+    top: auto;
+    bottom: 188px;
+    width: 52px;
+    height: 52px;
+  }
+
   .hero-bar,
   .panel {
     padding-left: 20px;
@@ -1163,9 +1198,14 @@ a {
   .hero-bar {
     flex-direction: column;
     align-items: flex-start;
+    gap: 16px;
   }
 
-  .hero-bar p,
+  .hero-bar p {
+    font-size: 16px;
+    line-height: 1.35;
+  }
+
   .copy h1,
   .copy h2,
   .section-heading h2,
@@ -1208,6 +1248,15 @@ a {
   .difference-layout {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .mark-stage {
+    touch-action: none;
+  }
+
+  .mark-glass {
+    pointer-events: auto;
+    touch-action: none;
   }
 
   .about-intro {

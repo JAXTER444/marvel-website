@@ -28,6 +28,42 @@ function park() {
   place(rest.x, rest.y);
 }
 
+function pointFromEvent(event) {
+  const rect = stage.getBoundingClientRect();
+  return {
+    x: event.clientX - rect.left,
+    y: event.clientY - rect.top,
+  };
+}
+
+function trackHover(event) {
+  const { x, y } = pointFromEvent(event);
+  const rect = stage.getBoundingClientRect();
+  const inside =
+    x >= -reach && y >= -reach && x <= rect.width + reach && y <= rect.height + reach;
+
+  if (!inside) {
+    if (!stage.classList.contains("is-active")) return;
+    stage.classList.remove("is-active");
+    requestAnimationFrame(() => park());
+    return;
+  }
+
+  if (!stage.classList.contains("is-active")) {
+    stage.classList.add("is-active");
+    requestAnimationFrame(() => place(x, y));
+    return;
+  }
+  place(x, y);
+}
+
+function endDrag(event) {
+  if (event.pointerType === "mouse") return;
+  if (stage.hasPointerCapture?.(event.pointerId)) stage.releasePointerCapture(event.pointerId);
+  stage.classList.remove("is-active");
+  park();
+}
+
 if (stage && glass && lens && lensView) {
   glass.style.setProperty("--lens", `${size}px`);
   lens.style.width = `${size}px`;
@@ -35,24 +71,24 @@ if (stage && glass && lens && lensView) {
   park();
 
   document.addEventListener("pointermove", (event) => {
-    const rect = stage.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    const inside =
-      x >= -reach && y >= -reach && x <= rect.width + reach && y <= rect.height + reach;
+    if (event.pointerType !== "mouse") return;
+    trackHover(event);
+  });
 
-    if (!inside) {
-      if (!stage.classList.contains("is-active")) return;
-      stage.classList.remove("is-active");
-      requestAnimationFrame(() => park());
-      return;
-    }
-
-    if (!stage.classList.contains("is-active")) {
-      stage.classList.add("is-active");
-      requestAnimationFrame(() => place(x, y));
-      return;
-    }
+  stage.addEventListener("pointerdown", (event) => {
+    if (event.pointerType === "mouse") return;
+    stage.setPointerCapture(event.pointerId);
+    const { x, y } = pointFromEvent(event);
+    stage.classList.add("is-active");
     place(x, y);
   });
+
+  stage.addEventListener("pointermove", (event) => {
+    if (event.pointerType === "mouse" || !stage.hasPointerCapture?.(event.pointerId)) return;
+    const { x, y } = pointFromEvent(event);
+    place(x, y);
+  });
+
+  stage.addEventListener("pointerup", endDrag);
+  stage.addEventListener("pointercancel", endDrag);
 }
