@@ -1,3 +1,6 @@
 tmp-*.js
 .vercel
 node_modules
+
+# Licensed Helvetica Neue — keep local only; do not deploy
+fonts/Helvetica Neue/

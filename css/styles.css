@@ -16,12 +16,60 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+@font-face {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/Helvetica%20Neue/HelveticaNeueRoman.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/Helvetica%20Neue/HelveticaNeueItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/Helvetica%20Neue/HelveticaNeueMedium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/Helvetica%20Neue/HelveticaNeueMediumItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/Helvetica%20Neue/HelveticaNeueBold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/Helvetica%20Neue/HelveticaNeueBoldItalic.otf") format("opentype");
+}
+
 :root {
   --ink: rgba(0, 0, 0, 0.8);
   --body: rgba(0, 0, 0, 0.75);
   --green: #00744e;
   --page: #edf3f4;
-  --heading: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --heading: "Helvetica Neue", Inter, Helvetica, Arial, sans-serif;
   --text: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -140,7 +188,8 @@ a {
   font-family: var(--heading);
   font-weight: 500;
   font-size: 16px;
-  line-height: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
   text-decoration: none;
   color: var(--ink);
 }
@@ -409,7 +458,8 @@ a {
   font-style: italic;
   font-weight: 400;
   font-size: 26px;
-  line-height: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
   color: var(--ink);
 }
 
@@ -496,7 +546,10 @@ a {
   font-family: var(--heading);
   font-weight: 500;
   font-size: 40px;
-  line-height: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  font-kerning: normal;
+  font-feature-settings: "kern" 1;
   color: var(--ink);
 }
 
@@ -506,7 +559,7 @@ a {
   margin: 0;
   font-size: 20px;
   font-weight: 400;
-  line-height: normal;
+  line-height: 1.35;
   color: var(--body);
 }
 
@@ -692,6 +745,21 @@ a {
   box-shadow: 4px 4px 5.7px rgba(0, 0, 0, 0.25);
 }
 
+.panel-difference .stats-note,
+.about-proof .stats-note {
+  width: min(1120px, 100%);
+  margin: 0 0 -16px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--body);
+  text-align: center;
+  opacity: 0.75;
+}
+
+.about-proof .stats-note {
+  margin: -6px auto 18px;
+}
+
 .panel-difference .stats {
   width: min(1120px, 100%);
   flex: 0 0 auto;
@@ -800,7 +868,8 @@ a {
   font-family: var(--heading);
   font-weight: 500;
   font-size: 44px;
-  line-height: 1.05;
+  line-height: 1.25;
+  letter-spacing: normal;
   color: var(--ink);
 }
 
@@ -1223,6 +1292,10 @@ a {
     line-height: 1.35;
   }
 
+  .section-heading {
+    text-align: left;
+  }
+
   .copy h1,
   .copy h2,
   .section-heading h2,
@@ -1357,7 +1430,8 @@ a {
   margin: 0;
   font-family: var(--heading);
   font-weight: 500;
-  line-height: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
   color: var(--ink);
 }
 
@@ -1546,9 +1620,10 @@ a {
   scroll-margin-top: 78px;
 }
 
-.about-page + .about-page {
+.about-page + .about-page,
+.about-page:has(.about-close) {
   padding-top: 72px;
-  padding-bottom: 104px;
+  padding-bottom: 120px;
 }
 
 .about-intro {
@@ -1565,7 +1640,10 @@ a {
   margin: 0;
   font-family: var(--heading);
   font-weight: 500;
-  line-height: 1.15;
+  line-height: 1.25;
+  letter-spacing: normal;
+  font-kerning: normal;
+  font-feature-settings: "kern" 1;
   color: var(--ink);
 }
 
@@ -1573,17 +1651,18 @@ a {
   margin-top: 12px;
   max-width: 22ch;
   font-size: 48px;
-  letter-spacing: -0.02em;
 }
 
 .about-credential {
   margin: 18px 0 0;
+  max-width: 48ch;
   color: var(--green);
   font-family: var(--heading);
   font-size: 15px;
   font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.45;
+  text-transform: none;
 }
 
 .about-intro .reveal > p:not(.info-kicker):not(.about-credential),
@@ -1671,7 +1750,6 @@ a {
   width: fit-content;
   padding-bottom: 17px;
   font-size: 32px;
-  letter-spacing: -0.02em;
 }
 
 .about-block h2::after {
@@ -1855,11 +1933,28 @@ a {
   color: var(--body);
 }
 
+.about-process-phases {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin: 32px 0 0;
+}
+
+.about-process-phase > h3 {
+  margin: 0 0 12px;
+  font-family: var(--heading);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
 .about-process {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
-  margin: 32px 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -1934,7 +2029,7 @@ a {
 
 .about-aside .about-ask h3 {
   font-size: 26px;
-  letter-spacing: -0.02em;
+  letter-spacing: normal;
 }
 
 .about-aside .about-fees {
@@ -1986,8 +2081,8 @@ a {
   font-family: var(--heading);
   font-size: 32px;
   font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1.2;
+  letter-spacing: normal;
   color: #fff;
 }
 
@@ -2272,6 +2367,7 @@ a {
 
 .about-close .info-actions {
   margin-top: 36px;
+  margin-bottom: 8px;
 }
 
 .reveal,
@@ -2355,9 +2451,10 @@ a {
     padding-bottom: 56px;
   }
 
-  .about-page + .about-page {
+  .about-page + .about-page,
+  .about-page:has(.about-close) {
     padding-top: 48px;
-    padding-bottom: 72px;
+    padding-bottom: 88px;
   }
 
   .about-proof {
@@ -2443,7 +2540,17 @@ a {
   }
 
   body {
-    text-rendering: geometricPrecision;
+    text-rendering: auto;
+  }
+
+  /* Firefox blurs type while a translate layer is present — animate opacity only. */
+  .reveal,
+  .reveal-fade,
+  .reveal-left,
+  .reveal-right,
+  .reveal.is-in,
+  .reveal-fade.is-in {
+    translate: none;
   }
 
   .btn {
@@ -2473,14 +2580,26 @@ a {
   .stat-value,
   .stat-label,
   .info h1,
-  .info h2 {
-    line-height: 1.125;
-  }
-
-  .prose,
-  .copy > p,
-  .section-heading p {
-    line-height: 1.2;
+  .info h2,
+  .info-kicker,
+  .about-intro h1,
+  .about-block h2,
+  .about-block .faq h2,
+  .about-steps h3,
+  .about-audiences h3,
+  .about-process h3,
+  .about-process-phase > h3,
+  .about-fees h3,
+  .about-ask h3,
+  .about-credential,
+  .about-proof-label,
+  .contact-intro h1,
+  .jobs-intro h1,
+  .role-grid li,
+  .site-footer-name {
+    line-height: 1.25;
+    letter-spacing: normal;
+    font-kerning: normal;
   }
 }
 
@@ -2506,7 +2625,8 @@ a {
   font-family: var(--heading);
   font-weight: 500;
   font-size: 44px;
-  line-height: 1.05;
+  line-height: 1.25;
+  letter-spacing: normal;
   color: var(--ink);
 }
 

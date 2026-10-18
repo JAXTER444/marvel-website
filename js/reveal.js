@@ -66,9 +66,7 @@ if (motionQuery.matches) {
   reveals.forEach((element) => observer.observe(element));
 }
 
-const processList = document.querySelector(".about-process");
-
-if (processList) {
+document.querySelectorAll(".about-process").forEach((processList) => {
   const processItems = [...processList.children];
   let processWidth = -1;
 
@@ -92,4 +90,4 @@ if (processList) {
   equalizeProcess();
   if (document.fonts?.ready) document.fonts.ready.then(equalizeProcess);
   new ResizeObserver(onProcessResize).observe(processList);
-}
+});
