@@ -111,13 +111,18 @@ a {
 }
 
 .brand-tagline {
-  position: relative;
   display: block;
   width: 89px;
-  height: 4.33px;
+  height: 4px;
+  line-height: 0;
 }
 
-.brand-tagline img,
+.brand-tagline img {
+  display: block;
+  width: 89px;
+  height: 4px;
+}
+
 .hero-tagline img {
   position: absolute;
   display: block;
