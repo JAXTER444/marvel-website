@@ -236,6 +236,40 @@ a {
   background: linear-gradient(#fdfdfd, #eff9fb);
 }
 
+/* Optional hero mosaic (disabled in index.html — uncomment markup to enable) */
+.hero-mosaic {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.65;
+  mask-image: radial-gradient(ellipse 78% 70% at 50% 42%, #000 30%, transparent 84%);
+  -webkit-mask-image: radial-gradient(ellipse 78% 70% at 50% 42%, #000 30%, transparent 84%);
+}
+
+.hero-mosaic-layer {
+  position: absolute;
+  inset: -8%;
+  width: 116%;
+  height: 116%;
+  display: block;
+  opacity: 0.85;
+  animation: hero-mosaic-drift 60s ease-in-out infinite;
+}
+
+@keyframes hero-mosaic-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translate3d(1%, -0.7%, 0);
+    opacity: 0.95;
+  }
+}
+
 .orb-slot {
   position: absolute;
   display: flex;
@@ -307,8 +341,13 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .orb-slot {
+  .orb-slot,
+  .hero-mosaic-layer {
     animation: none;
+  }
+
+  .hero-mosaic-layer {
+    opacity: 0.8;
   }
 }
 
