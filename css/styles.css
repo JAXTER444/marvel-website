@@ -1394,6 +1394,17 @@ a {
     display: none;
   }
 
+  .panel-about {
+    min-height: 0;
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .panel-about .copy {
+    gap: 20px;
+    padding: 0;
+  }
+
   .about-intro {
     flex-direction: column;
     align-items: flex-start;
