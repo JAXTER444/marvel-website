@@ -3651,6 +3651,153 @@ a {
   }
 }
 
+/* Phone landscape (e.g. iPhone 12 ~844×390): compact so list + detail fit the viewport */
+@media (max-width: 1280px) and (orientation: landscape) and (max-height: 500px) {
+  .panel-jobs {
+    padding: 6px 12px 10px;
+    min-height: 0;
+  }
+
+  .jobs-orbs {
+    display: none;
+  }
+
+  .jobs-intro {
+    margin-bottom: 4px;
+  }
+
+  .jobs-intro h1 {
+    font-size: 18px;
+  }
+
+  .panel-jobs:has(.jobs-board.has-selection) .jobs-intro {
+    display: none;
+  }
+
+  .jobs-toolbar {
+    top: 54px;
+    margin-bottom: 6px;
+    padding: 0 0 4px;
+  }
+
+  .jobs-searchbar {
+    height: 34px;
+    padding: 2px 4px 2px 12px;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .jobs-search-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .jobs-search-input {
+    font-size: 13px;
+  }
+
+  .jobs-filter-btn {
+    height: 26px;
+    padding: 0 10px;
+    gap: 3px;
+    font-size: 11px;
+  }
+
+  .jobs-filter-label {
+    display: none;
+  }
+
+  .jobs-board.has-selection .jobs-layout {
+    grid-template-columns: minmax(132px, 160px) minmax(0, 1fr);
+    gap: 8px;
+    align-items: stretch;
+    height: calc(100dvh - 54px - 44px);
+  }
+
+  .jobs-board.has-selection .job-list {
+    position: relative;
+    top: auto;
+    max-height: none;
+    height: 100%;
+    gap: 4px;
+    padding-right: 2px;
+  }
+
+  .jobs-detail-stage {
+    height: 100%;
+    min-height: 0;
+    overflow: auto;
+    scroll-margin-top: 0;
+    gap: 8px;
+  }
+
+  .job-card {
+    padding: 7px 9px;
+    gap: 6px;
+    border-radius: 10px;
+  }
+
+  .job-card-title {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+
+  .job-card-meta {
+    display: none;
+  }
+
+  .job-card-chevron {
+    width: 6px;
+    height: 6px;
+  }
+
+  .job-detail {
+    padding: 12px 12px 14px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  }
+
+  .job-detail-heading {
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+  }
+
+  .jobs-kicker {
+    margin-bottom: 2px;
+    font-size: 12px;
+  }
+
+  .job-detail h2 {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  .jobs-meta {
+    margin-top: 6px;
+    gap: 4px;
+  }
+
+  .jobs-meta li {
+    padding: 2px 7px;
+    font-size: 11px;
+  }
+
+  .jobs-pay,
+  .jobs-deadline {
+    margin-top: 6px;
+    font-size: 12px;
+  }
+
+  .job-detail-aside {
+    gap: 8px;
+  }
+
+  .btn-apply-now {
+    min-height: 36px;
+    font-size: 13px;
+  }
+}
+
 @media (max-width: 1100px) {
   .jobs-detail-stage {
     grid-template-columns: minmax(0, 1fr) 240px;
