@@ -3260,7 +3260,10 @@ a {
 
 .btn-apply-now {
   width: 100%;
+  height: 42px;
   min-height: 42px;
+  padding-top: 0;
+  padding-bottom: 0;
   box-sizing: border-box;
 }
 
@@ -3386,15 +3389,16 @@ a {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 38px;
-  padding: 12px 16px;
+  height: 42px;
+  min-height: 42px;
+  padding: 0 16px;
   border: none;
   border-radius: 8px;
   background: #d12ad1;
   color: rgba(255, 255, 255, 0.95);
   font-size: 14px;
   font-weight: 700;
-  line-height: normal;
+  line-height: 1;
   text-decoration: none;
   cursor: pointer;
   box-sizing: border-box;
@@ -3624,12 +3628,22 @@ a {
   }
 
   .jobs-detail-stage {
+    grid-template-columns: 1fr;
     scroll-margin-top: 72px;
   }
 
   .job-detail {
+    order: 0;
     min-height: 0;
     padding: 22px 20px 24px;
+  }
+
+  .job-detail-aside {
+    position: static;
+    order: 1;
+    top: auto;
+    width: 100%;
+    max-width: none;
   }
 
   .job-detail-heading {
@@ -3637,8 +3651,14 @@ a {
     padding-bottom: 16px;
   }
 
-  .job-detail-aside {
-    top: 72px;
+  .btn-apply-now,
+  .easy-apply-button {
+    height: 38px;
+    min-height: 38px;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 13px;
+    line-height: 1;
   }
 
   .job-card {
@@ -3724,10 +3744,26 @@ a {
   }
 
   .jobs-detail-stage {
+    display: flex;
+    flex-direction: column;
     height: 100%;
     min-height: 0;
     overflow: auto;
     scroll-margin-top: 0;
+    gap: 8px;
+  }
+
+  .job-detail {
+    order: 0;
+    flex: 0 0 auto;
+    padding: 12px 12px 14px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  }
+
+  .job-detail-aside {
+    order: 1;
+    flex: 0 0 auto;
     gap: 8px;
   }
 
@@ -3749,12 +3785,6 @@ a {
   .job-card-chevron {
     width: 6px;
     height: 6px;
-  }
-
-  .job-detail {
-    padding: 12px 12px 14px;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
   }
 
   .job-detail-heading {
@@ -3788,13 +3818,63 @@ a {
     font-size: 12px;
   }
 
-  .job-detail-aside {
-    gap: 8px;
+  .jobs-overview-card {
+    gap: 12px;
+    padding: 14px 14px;
+    border-radius: 12px;
   }
 
-  .btn-apply-now {
-    min-height: 36px;
-    font-size: 13px;
+  .jobs-overview-title {
+    font-size: 16px;
+  }
+
+  .jobs-overview-list {
+    gap: 10px;
+  }
+
+  .jobs-overview-item {
+    gap: 10px;
+    min-height: 0;
+  }
+
+  .easy-apply-card {
+    gap: 8px;
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .easy-apply-prompt {
+    font-size: 12px;
+  }
+
+  .job-detail-aside-actions {
+    padding: 0;
+  }
+
+  .job-detail-aside-actions + .easy-apply-card {
+    margin-top: 0;
+  }
+
+  .btn-apply-now,
+  .easy-apply-button {
+    height: 34px;
+    min-height: 34px;
+    padding: 0 12px;
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  .job-detail-footer-actions {
+    margin-top: 16px;
+    padding-top: 12px;
+  }
+
+  .job-detail-footer-actions .btn {
+    height: 34px;
+    min-height: 34px;
+    padding: 0 14px;
+    font-size: 12px;
+    line-height: 1;
   }
 }
 
@@ -3809,11 +3889,34 @@ a {
     grid-template-columns: 1fr;
   }
 
+  .job-detail {
+    order: 0;
+  }
+
   .job-detail-aside {
     position: static;
     order: 1;
     max-width: none;
     width: 100%;
+  }
+}
+
+/* Keep overview / apply / easy apply under the description in landscape */
+@media (max-width: 1280px) and (orientation: landscape) {
+  .jobs-detail-stage {
+    grid-template-columns: 1fr;
+  }
+
+  .job-detail {
+    order: 0;
+  }
+
+  .job-detail-aside {
+    position: static;
+    order: 1;
+    top: auto;
+    width: 100%;
+    max-width: none;
   }
 }
 
