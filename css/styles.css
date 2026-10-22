@@ -3597,8 +3597,31 @@ a {
 }
 
 @media (max-width: 760px) {
-  .jobs-orbs {
-    display: none;
+  .panel-jobs .orb-large {
+    left: auto;
+    right: -90px;
+    top: auto;
+    bottom: -40px;
+    width: 220px;
+    height: 220px;
+  }
+
+  .panel-jobs .orb-top {
+    left: auto;
+    right: -48px;
+    top: 48px;
+    bottom: auto;
+    width: 120px;
+    height: 120px;
+  }
+
+  .panel-jobs .orb-small {
+    left: 12px;
+    right: auto;
+    top: auto;
+    bottom: 160px;
+    width: 52px;
+    height: 52px;
   }
 
   .jobs-intro h1,
