@@ -3652,13 +3652,18 @@ a {
   }
 
   .btn-apply-now,
-  .easy-apply-button {
-    height: 38px;
-    min-height: 38px;
-    padding-top: 0;
-    padding-bottom: 0;
+  .easy-apply-button,
+  .job-detail-footer-actions .btn {
+    height: auto;
+    min-height: 40px;
+    padding: 10px 14px;
     font-size: 13px;
-    line-height: 1;
+    line-height: 1.2;
+  }
+
+  .jobs-meta li {
+    padding: 6px 10px;
+    font-size: 12px;
   }
 
   .job-card {
@@ -3856,12 +3861,13 @@ a {
   }
 
   .btn-apply-now,
-  .easy-apply-button {
-    height: 34px;
-    min-height: 34px;
-    padding: 0 12px;
+  .easy-apply-button,
+  .job-detail-footer-actions .btn {
+    height: auto;
+    min-height: 36px;
+    padding: 8px 12px;
     font-size: 12px;
-    line-height: 1;
+    line-height: 1.2;
   }
 
   .job-detail-footer-actions {
@@ -3869,12 +3875,8 @@ a {
     padding-top: 12px;
   }
 
-  .job-detail-footer-actions .btn {
-    height: 34px;
-    min-height: 34px;
-    padding: 0 14px;
-    font-size: 12px;
-    line-height: 1;
+  .jobs-meta li {
+    padding: 5px 9px;
   }
 }
 
@@ -3996,5 +3998,28 @@ a {
 
   .job-detail-aside {
     max-width: none;
+  }
+
+  .jobs-meta li {
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+
+  .job-detail-aside-actions {
+    padding: 2px 0;
+  }
+
+  .btn-apply-now,
+  .easy-apply-button,
+  .job-detail-footer-actions .btn {
+    height: auto;
+    min-height: 44px;
+    padding: 12px 16px;
+    font-size: 13px;
+    line-height: 1.2;
+  }
+
+  .easy-apply-prompt {
+    font-size: 13px;
   }
 }
