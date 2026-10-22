@@ -3631,34 +3631,6 @@ a {
   }
 }
 
-/* Landscape: smaller job cards only — leave description/detail content alone */
-@media (max-width: 1280px) and (orientation: landscape) {
-  .job-list {
-    gap: 5px;
-  }
-
-  .job-card {
-    padding: 8px 10px;
-    gap: 8px;
-    border-radius: 10px;
-  }
-
-  .job-card-title {
-    font-size: 13px;
-    line-height: 1.25;
-  }
-
-  .job-card-meta {
-    font-size: 11px;
-    line-height: 1.3;
-  }
-
-  .job-card-chevron {
-    width: 6px;
-    height: 6px;
-  }
-}
-
 @media (max-width: 1100px) {
   .jobs-detail-stage {
     grid-template-columns: minmax(0, 1fr) 240px;
@@ -3760,5 +3732,30 @@ a {
 
   .job-detail-aside {
     max-width: none;
+  }
+
+  /* Mobile job list cards only */
+  .job-list {
+    gap: 6px;
+  }
+
+  .job-card {
+    padding: 10px 12px;
+    gap: 10px;
+    border-radius: 12px;
+  }
+
+  .job-card-title {
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .job-card-meta {
+    font-size: 12px;
+  }
+
+  .job-card-chevron {
+    width: 6px;
+    height: 6px;
   }
 }
