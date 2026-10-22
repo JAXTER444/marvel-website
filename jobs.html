@@ -3,21 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Jobs | Marvel Placement Consultants</title>
+    <title>Explore open vacancies | Marvel Placement Consultants</title>
     <meta
       name="description"
       content="Open roles at Marvel Placement Consultants. Mining, construction, finance, engineering, SHEQ, and other professional jobs, updated from our desk."
     />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Marvel Placement Consultants" />
-    <meta property="og:title" content="Jobs | Marvel Placement Consultants" />
+    <meta property="og:title" content="Explore open vacancies | Marvel Placement Consultants" />
     <meta property="og:description" content="Open roles at Marvel Placement Consultants. Mining, construction, finance, engineering, SHEQ, and other professional jobs, updated from our desk." />
     <meta property="og:image" content="https://marvelplacement.co.za/assets/images/marvel-meta.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Marvel Placement Consultants" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Jobs | Marvel Placement Consultants" />
+    <meta name="twitter:title" content="Explore open vacancies | Marvel Placement Consultants" />
     <meta name="twitter:description" content="Open roles at Marvel Placement Consultants. Mining, construction, finance, engineering, SHEQ, and other professional jobs, updated from our desk." />
     <meta name="twitter:image" content="https://marvelplacement.co.za/assets/images/marvel-meta.png" />
     <link rel="stylesheet" href="css/styles.css" />
@@ -44,13 +44,63 @@
 
     <main>
       <section class="panel panel-jobs" aria-labelledby="jobs-title">
+        <div class="jobs-orbs" aria-hidden="true">
+          <div class="orb-slot orb-large">
+            <img src="assets/icons/orb-large.svg" alt="" width="334.34" height="334.34" />
+          </div>
+          <div class="orb-slot orb-top">
+            <img src="assets/icons/orb-top.svg" alt="" width="163.772" height="163.772" />
+          </div>
+          <div class="orb-slot orb-small">
+            <img src="assets/icons/orb-small.svg" alt="" width="63.7257" height="63.7257" />
+          </div>
+        </div>
         <div class="jobs-intro">
-          <p class="contact-place">Open roles</p>
-          <h1 id="jobs-title">Roles we’re filling now.</h1>
-          <p class="contact-lead">
-            These update from our desk. Apply on the role, or write if you want to be considered for something that
-            isn’t listed.
-          </p>
+          <h1 id="jobs-title">Explore open vacancies</h1>
+        </div>
+        <div class="jobs-toolbar">
+          <div class="jobs-searchbar">
+            <svg class="jobs-search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M14.1667 14.1667L17.5 17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <input
+              id="job-search"
+              class="jobs-search-input"
+              type="search"
+              placeholder="Search roles"
+              aria-label="Search roles"
+              autocomplete="off"
+              disabled
+            />
+            <button
+              id="job-filter-btn"
+              type="button"
+              class="jobs-filter-btn"
+              aria-label="Filter"
+              aria-expanded="false"
+              aria-controls="job-filter-panel"
+              disabled
+            >
+              <svg class="jobs-filter-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M4.66667 14V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M11.3333 14V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M11.3333 4V2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M4.66667 6V2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M4.66667 12C4.04541 12 3.73479 12 3.48975 11.8985C3.16305 11.7632 2.90349 11.5036 2.76816 11.1769C2.66667 10.9319 2.66667 10.6213 2.66667 10C2.66667 9.37873 2.66667 9.06813 2.76816 8.82307C2.90349 8.4964 3.16305 8.2368 3.48975 8.10147C3.73479 8 4.04541 8 4.66667 8C5.28792 8 5.59855 8 5.84358 8.10147C6.17028 8.2368 6.42985 8.4964 6.56517 8.82307C6.66667 9.06813 6.66667 9.37873 6.66667 10C6.66667 10.6213 6.66667 10.9319 6.56517 11.1769C6.42985 11.5036 6.17028 11.7632 5.84358 11.8985C5.59855 12 5.28792 12 4.66667 12Z" stroke="currentColor" stroke-width="1.5" />
+                <path d="M11.3333 8C10.7121 8 10.4015 8 10.1564 7.89853C9.82973 7.7632 9.57013 7.5036 9.4348 7.17693C9.33333 6.93187 9.33333 6.62125 9.33333 6C9.33333 5.37875 9.33333 5.06812 9.4348 4.82309C9.57013 4.49639 9.82973 4.23682 10.1564 4.10149C10.4015 4 10.7121 4 11.3333 4C11.9546 4 12.2652 4 12.5103 4.10149C12.8369 4.23682 13.0965 4.49639 13.2319 4.82309C13.3333 5.06812 13.3333 5.37875 13.3333 6C13.3333 6.62125 13.3333 6.93187 13.2319 7.17693C13.0965 7.5036 12.8369 7.7632 12.5103 7.89853C12.2652 8 11.9546 8 11.3333 8Z" stroke="currentColor" stroke-width="1.5" />
+              </svg>
+              <span class="jobs-filter-label">Filter</span>
+              <span id="job-filter-badge" class="jobs-filter-badge" hidden>0</span>
+            </button>
+          </div>
+          <div id="job-filter-panel" class="jobs-filter-panel" hidden role="dialog" aria-label="Filter roles">
+            <div class="jobs-filter-panel-header">
+              <p class="jobs-filter-panel-title">Filters</p>
+              <button type="button" class="jobs-filter-clear" id="job-filter-clear" hidden>Clear</button>
+            </div>
+            <div id="job-filter-body" class="jobs-filter-body"></div>
+          </div>
         </div>
         <div class="jobs-board is-message">
           <div id="job-status" class="jobs-status">
@@ -58,7 +108,10 @@
           </div>
           <div class="jobs-layout">
             <div id="job-list" class="job-list"></div>
-            <article id="job-detail" class="job-detail"></article>
+            <div id="jobs-detail-stage" class="jobs-detail-stage" hidden>
+              <article id="job-detail" class="job-detail"></article>
+              <aside id="job-apply-aside" class="job-detail-aside" aria-label="Apply"></aside>
+            </div>
           </div>
         </div>
       </section>

@@ -1,5 +1,17 @@
 const toggle = document.querySelector(".nav-toggle");
 const nav = document.querySelector("#site-nav");
+const brand = document.querySelector("a.brand");
+
+/** Home logo uses #top; re-clicking the same hash does nothing — force scroll. */
+brand?.addEventListener("click", (event) => {
+  const href = brand.getAttribute("href") ?? "";
+  if (href !== "#top" && href !== "#") return;
+  event.preventDefault();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  if (location.hash !== "#top") {
+    history.pushState(null, "", `${location.pathname}${location.search}#top`);
+  }
+});
 
 if (toggle && nav) {
   toggle.addEventListener("click", () => {
