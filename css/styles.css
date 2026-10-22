@@ -1389,6 +1389,11 @@ a {
     touch-action: none;
   }
 
+  /* Homepage about mark + hourglass */
+  .panel-about .mark-stage {
+    display: none;
+  }
+
   .about-intro {
     flex-direction: column;
     align-items: flex-start;
