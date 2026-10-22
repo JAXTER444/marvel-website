@@ -3605,14 +3605,15 @@ a {
 
 @media (max-width: 1280px) and (orientation: landscape) {
   .jobs-board.has-selection .jobs-layout {
-    grid-template-columns: minmax(200px, 240px) minmax(0, 1fr);
+    grid-template-columns: minmax(160px, 200px) minmax(0, 1fr);
+    gap: 10px;
   }
 
   .jobs-board.has-selection .job-list {
     display: flex;
     position: sticky;
     top: 64px;
-    max-height: calc(100dvh - 80px);
+    max-height: calc(100vh - 88px);
     overflow: auto;
     padding-right: 4px;
   }
@@ -3623,7 +3624,7 @@ a {
 
   .jobs-toolbar {
     top: 54px;
-    margin-bottom: 14px;
+    margin-bottom: 10px;
     padding: 4px 0 6px;
   }
 
@@ -3635,7 +3636,7 @@ a {
   .job-detail {
     order: 0;
     min-height: 0;
-    padding: 22px 20px 24px;
+    padding: 16px 16px 18px;
   }
 
   .job-detail-aside {
@@ -3646,40 +3647,28 @@ a {
     max-width: none;
   }
 
-  .job-detail-heading {
-    margin-bottom: 18px;
-    padding-bottom: 16px;
-  }
-
-  .btn-apply-now,
-  .easy-apply-button,
-  .job-detail-footer-actions .btn {
-    height: auto;
-    min-height: 40px;
-    padding: 10px 14px;
-    font-size: 13px;
-    line-height: 1.2;
-  }
-
-  .jobs-meta li {
-    padding: 6px 10px;
-    font-size: 12px;
+  .job-detail h2 {
+    font-size: 22px;
   }
 
   .job-card {
-    padding: 12px 14px;
-    gap: 10px;
+    padding: 10px 12px;
+    gap: 8px;
   }
 
   .job-card-title {
-    font-size: 15px;
+    font-size: 14px;
+  }
+
+  .job-card-meta {
+    font-size: 12px;
   }
 }
 
-/* Phone landscape (e.g. iPhone 12 ~844×390): compact so list + detail fit the viewport */
+/* Phone landscape: tighter type/spacing, natural page scroll (no fixed viewport lock) */
 @media (max-width: 1280px) and (orientation: landscape) and (max-height: 500px) {
   .panel-jobs {
-    padding: 6px 12px 10px;
+    padding: 8px 12px 12px;
     min-height: 0;
   }
 
@@ -3688,11 +3677,11 @@ a {
   }
 
   .jobs-intro {
-    margin-bottom: 4px;
+    margin-bottom: 6px;
   }
 
   .jobs-intro h1 {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .panel-jobs:has(.jobs-board.has-selection) .jobs-intro {
@@ -3700,16 +3689,14 @@ a {
   }
 
   .jobs-toolbar {
-    top: 54px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     padding: 0 0 4px;
   }
 
   .jobs-searchbar {
-    height: 34px;
+    height: 36px;
     padding: 2px 4px 2px 12px;
     gap: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   }
 
   .jobs-search-icon {
@@ -3722,9 +3709,8 @@ a {
   }
 
   .jobs-filter-btn {
-    height: 26px;
+    height: 28px;
     padding: 0 10px;
-    gap: 3px;
     font-size: 11px;
   }
 
@@ -3733,63 +3719,19 @@ a {
   }
 
   .jobs-board.has-selection .jobs-layout {
-    grid-template-columns: minmax(132px, 160px) minmax(0, 1fr);
+    grid-template-columns: minmax(140px, 168px) minmax(0, 1fr);
     gap: 8px;
-    align-items: stretch;
-    height: calc(100dvh - 54px - 44px);
   }
 
   .jobs-board.has-selection .job-list {
-    position: relative;
-    top: auto;
-    max-height: none;
-    height: 100%;
+    top: 58px;
+    max-height: calc(100vh - 72px);
     gap: 4px;
-    padding-right: 2px;
-  }
-
-  .jobs-detail-stage {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    min-height: 0;
-    overflow: auto;
-    scroll-margin-top: 0;
-    gap: 8px;
   }
 
   .job-detail {
-    order: 0;
-    flex: 0 0 auto;
     padding: 12px 12px 14px;
     border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-  }
-
-  .job-detail-aside {
-    order: 1;
-    flex: 0 0 auto;
-    gap: 8px;
-  }
-
-  .job-card {
-    padding: 7px 9px;
-    gap: 6px;
-    border-radius: 10px;
-  }
-
-  .job-card-title {
-    font-size: 12px;
-    line-height: 1.25;
-  }
-
-  .job-card-meta {
-    display: none;
-  }
-
-  .job-card-chevron {
-    width: 6px;
-    height: 6px;
   }
 
   .job-detail-heading {
@@ -3804,28 +3746,25 @@ a {
 
   .job-detail h2 {
     font-size: 18px;
-    line-height: 1.2;
   }
 
-  .jobs-meta {
-    margin-top: 6px;
-    gap: 4px;
+  .job-card {
+    padding: 8px 10px;
+    gap: 6px;
+    border-radius: 10px;
   }
 
-  .jobs-meta li {
-    padding: 2px 7px;
-    font-size: 11px;
-  }
-
-  .jobs-pay,
-  .jobs-deadline {
-    margin-top: 6px;
+  .job-card-title {
     font-size: 12px;
+  }
+
+  .job-card-meta {
+    display: none;
   }
 
   .jobs-overview-card {
     gap: 12px;
-    padding: 14px 14px;
+    padding: 14px;
     border-radius: 12px;
   }
 
@@ -3846,37 +3785,6 @@ a {
     gap: 8px;
     padding: 12px;
     border-radius: 12px;
-  }
-
-  .easy-apply-prompt {
-    font-size: 12px;
-  }
-
-  .job-detail-aside-actions {
-    padding: 0;
-  }
-
-  .job-detail-aside-actions + .easy-apply-card {
-    margin-top: 0;
-  }
-
-  .btn-apply-now,
-  .easy-apply-button,
-  .job-detail-footer-actions .btn {
-    height: auto;
-    min-height: 36px;
-    padding: 8px 12px;
-    font-size: 12px;
-    line-height: 1.2;
-  }
-
-  .job-detail-footer-actions {
-    margin-top: 16px;
-    padding-top: 12px;
-  }
-
-  .jobs-meta li {
-    padding: 5px 9px;
   }
 }
 
@@ -3950,6 +3858,47 @@ a {
     height: 52px;
   }
 
+  .jobs-filter-label {
+    display: none;
+  }
+
+  .jobs-filter-panel {
+    right: 0;
+    left: 0;
+    width: auto;
+    margin: 0 auto;
+  }
+
+  .jobs-detail-stage {
+    scroll-margin-top: 72px;
+  }
+
+  .job-detail-aside {
+    max-width: none;
+  }
+
+  .jobs-meta li {
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+
+  .btn-apply-now,
+  .easy-apply-button,
+  .job-detail-footer-actions .btn {
+    height: auto;
+    min-height: 44px;
+    padding: 12px 16px;
+    font-size: 13px;
+    line-height: 1.2;
+  }
+
+  .easy-apply-prompt {
+    font-size: 13px;
+  }
+}
+
+/* Portrait-only mobile sizing so landscape rules are not overridden */
+@media (max-width: 760px) and (orientation: portrait) {
   .jobs-intro h1,
   .job-detail h2 {
     font-size: 30px;
@@ -3977,49 +3926,7 @@ a {
     font-size: 12px;
   }
 
-  .jobs-filter-label {
-    display: none;
-  }
-
-  .jobs-filter-panel {
-    right: 0;
-    left: 0;
-    width: auto;
-    margin: 0 auto;
-  }
-
   .job-detail {
     padding: 22px 18px 24px;
-  }
-
-  .jobs-detail-stage {
-    scroll-margin-top: 72px;
-  }
-
-  .job-detail-aside {
-    max-width: none;
-  }
-
-  .jobs-meta li {
-    padding: 7px 11px;
-    font-size: 12px;
-  }
-
-  .job-detail-aside-actions {
-    padding: 2px 0;
-  }
-
-  .btn-apply-now,
-  .easy-apply-button,
-  .job-detail-footer-actions .btn {
-    height: auto;
-    min-height: 44px;
-    padding: 12px 16px;
-    font-size: 13px;
-    line-height: 1.2;
-  }
-
-  .easy-apply-prompt {
-    font-size: 13px;
   }
 }
