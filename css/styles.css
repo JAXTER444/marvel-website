@@ -3733,25 +3733,28 @@ a {
   .job-detail-aside {
     max-width: none;
   }
+}
 
-  /* Mobile job list cards only */
+/* Smaller job cards only on phone landscape (short height). Skips portrait + desktop. */
+@media (orientation: landscape) and (max-height: 500px) {
   .job-list {
-    gap: 6px;
+    gap: 5px;
   }
 
   .job-card {
-    padding: 10px 12px;
-    gap: 10px;
-    border-radius: 12px;
+    padding: 8px 10px;
+    gap: 8px;
+    border-radius: 10px;
   }
 
   .job-card-title {
-    font-size: 14px;
-    line-height: 1.3;
+    font-size: 13px;
+    line-height: 1.25;
   }
 
   .job-card-meta {
-    font-size: 12px;
+    font-size: 11px;
+    line-height: 1.3;
   }
 
   .job-card-chevron {
