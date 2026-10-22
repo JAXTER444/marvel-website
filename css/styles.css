@@ -3631,6 +3631,71 @@ a {
   }
 }
 
+/* Landscape button/list view only — keep open description view unchanged */
+@media (max-width: 1280px) and (orientation: landscape) {
+  .panel-jobs:not(:has(.jobs-board.has-selection)) {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .panel-jobs:not(:has(.jobs-board.has-selection)) .jobs-intro {
+    margin-bottom: 10px;
+  }
+
+  .panel-jobs:not(:has(.jobs-board.has-selection)) .jobs-intro h1 {
+    font-size: 24px;
+  }
+
+  .panel-jobs:not(:has(.jobs-board.has-selection)) .jobs-toolbar {
+    margin-bottom: 12px;
+    padding: 2px 0 4px;
+  }
+
+  .panel-jobs:not(:has(.jobs-board.has-selection)) .jobs-searchbar {
+    height: 38px;
+    padding: 3px 5px 3px 14px;
+    gap: 8px;
+  }
+
+  .panel-jobs:not(:has(.jobs-board.has-selection)) .jobs-search-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .panel-jobs:not(:has(.jobs-board.has-selection)) .jobs-search-input {
+    font-size: 13px;
+  }
+
+  .panel-jobs:not(:has(.jobs-board.has-selection)) .jobs-filter-btn {
+    height: 28px;
+    padding: 0 10px;
+    font-size: 11px;
+  }
+
+  .panel-jobs:not(:has(.jobs-board.has-selection)) .job-list {
+    gap: 6px;
+  }
+
+  .panel-jobs:not(:has(.jobs-board.has-selection)) .job-card {
+    padding: 10px 12px;
+    gap: 10px;
+    border-radius: 12px;
+  }
+
+  .panel-jobs:not(:has(.jobs-board.has-selection)) .job-card-title {
+    font-size: 14px;
+  }
+
+  .panel-jobs:not(:has(.jobs-board.has-selection)) .job-card-meta {
+    font-size: 12px;
+  }
+
+  .panel-jobs:not(:has(.jobs-board.has-selection)) .job-card-chevron {
+    width: 6px;
+    height: 6px;
+  }
+}
+
 @media (max-width: 1100px) {
   .jobs-detail-stage {
     grid-template-columns: minmax(0, 1fr) 240px;
