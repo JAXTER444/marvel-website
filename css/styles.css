@@ -1168,10 +1168,58 @@ a {
 
 .form-foot {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 16px;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px 24px;
   margin-top: 4px;
+}
+
+.form-consent {
+  flex: 1 1 16rem;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-consent-note {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.form-consent-note a {
+  color: var(--green);
+  font-weight: 500;
+  text-underline-offset: 2px;
+}
+
+.form-consent-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--body);
+  cursor: pointer;
+}
+
+.form-consent-check input {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  margin: 2px 0 0;
+  accent-color: var(--green);
+}
+
+.form-consent.is-invalid .form-consent-check {
+  color: var(--ink);
+}
+
+.form-consent .field-error {
+  margin: 0;
 }
 
 .form-note {
@@ -1665,6 +1713,59 @@ a {
   margin: 0 auto;
   padding: 80px 40px 8px;
   overflow-x: clip;
+}
+
+.legal-page {
+  padding-bottom: 120px;
+}
+
+.legal-page .about-intro {
+  display: block;
+  max-width: 54ch;
+}
+
+.legal-page .about-intro h1 {
+  max-width: none;
+}
+
+.legal-updated {
+  margin: 16px 0 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.legal-page .about-intro > div > p:not(.info-kicker):not(.legal-updated) {
+  margin: 18px 0 0;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--body);
+}
+
+.legal-page .about-block {
+  max-width: 62ch;
+}
+
+.legal-page .about-block > p,
+.legal-page .about-block > ul {
+  margin: 18px 0 0;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--body);
+}
+
+.legal-page .about-block > ul {
+  padding-left: 1.25em;
+}
+
+.legal-page .about-block > ul li + li {
+  margin-top: 8px;
+}
+
+.legal-page .about-block a {
+  color: var(--green);
+  font-weight: 500;
+  text-underline-offset: 3px;
 }
 
 .about-page:has(.industry-hero) {

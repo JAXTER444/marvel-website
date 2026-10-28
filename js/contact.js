@@ -12,13 +12,34 @@ if (form && success && emailLink) {
     topic: form.elements.namedItem("topic"),
     organisation: form.elements.namedItem("organisation"),
     message: form.elements.namedItem("message"),
+    consent: form.elements.namedItem("consent"),
   };
+
+  const consentWrap = form.querySelector("#consent-field");
+  const consentError = form.querySelector("#consent-error");
 
   function controls(field) {
     return field instanceof RadioNodeList ? [...field] : [field];
   }
 
+  function setConsentError(message) {
+    if (!consentWrap || !(fields.consent instanceof HTMLInputElement)) return;
+    consentWrap.classList.toggle("is-invalid", Boolean(message));
+    if (message) {
+      fields.consent.setAttribute("aria-invalid", "true");
+      if (consentError) fields.consent.setAttribute("aria-describedby", consentError.id);
+    } else {
+      fields.consent.removeAttribute("aria-invalid");
+      fields.consent.removeAttribute("aria-describedby");
+    }
+    if (consentError) consentError.textContent = message;
+  }
+
   function setError(field, message) {
+    if (field === fields.consent) {
+      setConsentError(message);
+      return;
+    }
     const nodes = controls(field);
     const wrap = nodes[0].closest(".field");
     const error = wrap.querySelector(".field-error");
@@ -204,7 +225,12 @@ if (form && success && emailLink) {
   form.addEventListener("change", clearFieldError);
 
   function clearFieldError(event) {
-    if (event.target instanceof HTMLElement && event.target.closest(".is-invalid")) {
+    if (!(event.target instanceof HTMLElement)) return;
+    if (event.target === fields.consent || event.target.closest("#consent-field")) {
+      setConsentError("");
+      return;
+    }
+    if (event.target.closest(".is-invalid")) {
       setError(event.target, "");
     }
   }
@@ -253,6 +279,13 @@ if (form && success && emailLink) {
       valid = false;
     } else {
       setError(fields.message, "");
+    }
+
+    if (!(fields.consent instanceof HTMLInputElement) || !fields.consent.checked) {
+      setConsentError("Please agree to the Privacy Policy to continue.");
+      valid = false;
+    } else {
+      setConsentError("");
     }
 
     if (!valid) {
