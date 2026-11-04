@@ -49,12 +49,12 @@
               Engineering hiring turns on the plant, the discipline, and the registration a role actually needs. From
               Pretoria we recruit mechanical, process, electrical, and civil engineers for Gauteng employers.
             </p>
-            <ul class="about-places">
-              <li>Pretoria</li>
-              <li>Gauteng</li>
-              <li>North West</li>
-              <li>Mpumalanga</li>
-            </ul>
+            <ul
+              class="about-places"
+              data-departments="Engineering"
+              data-fallback-places="Gauteng|North West|Mpumalanga"
+              hidden
+            ></ul>
           </div>
           <img
             class="industry-photo reveal reveal-right"
@@ -74,12 +74,16 @@
             </p>
           </div>
           <ul class="role-grid">
-            <li class="reveal"><a href="mechanical-engineer-jobs-gauteng.html">Mechanical engineer jobs in Gauteng</a></li>
-            <li class="reveal" style="--reveal-delay: 70ms"><a href="process-engineer-recruitment-pretoria.html">Process engineer recruitment in Pretoria</a></li>
-            <li class="reveal" style="--reveal-delay: 140ms"><a href="hire-electrical-engineer.html">Hire an electrical engineer</a></li>
-            <li class="reveal" style="--reveal-delay: 210ms">Civil and structural engineers</li>
-            <li class="reveal" style="--reveal-delay: 280ms">Project and discipline engineers</li>
-            <li class="reveal" style="--reveal-delay: 350ms">Engineering managers</li>
+            <li class="reveal"><a href="mechanical-engineer-jobs-gauteng.html">Mechanical engineers</a></li>
+            <li class="reveal" style="--reveal-delay: 50ms"><a href="hire-electrical-engineer.html">Electrical engineers</a></li>
+            <li class="reveal" style="--reveal-delay: 100ms">Civil or structural engineers</li>
+            <li class="reveal" style="--reveal-delay: 150ms">Mining engineers or metallurgical engineers</li>
+            <li class="reveal" style="--reveal-delay: 200ms">Instrumentation, automation, or control engineers</li>
+            <li class="reveal" style="--reveal-delay: 250ms">Engineering technicians, technologists, or draftspeople</li>
+            <li class="reveal" style="--reveal-delay: 300ms">Maintenance or reliability engineers</li>
+            <li class="reveal" style="--reveal-delay: 350ms">Engineering project managers</li>
+            <li class="reveal" style="--reveal-delay: 400ms">Design engineers and product development engineers</li>
+            <li class="reveal" style="--reveal-delay: 450ms">Plant, manufacturing, or industrial operations engineering</li>
           </ul>
         </section>
 
@@ -104,21 +108,6 @@
             <div class="info-actions">
               <a class="btn btn-green" href="about.html#search-procedure">Learn more</a>
             </div>
-          </div>
-          <div class="faq">
-            <h2 class="reveal">Engineering recruitment questions</h2>
-            <details class="reveal">
-              <summary>Which engineering disciplines do you recruit?</summary>
-              <p>Mechanical, process, electrical, and civil engineers, plus project engineers and engineering managers, for Gauteng employers from our Pretoria base.</p>
-            </details>
-            <details class="reveal" style="--reveal-delay: 80ms">
-              <summary>Do you recruit engineers for mines and plants?</summary>
-              <p>Yes. Mines, processing plants, EPCM firms, and civils contractors are the employers we brief for engineering roles.</p>
-            </details>
-            <details class="reveal" style="--reveal-delay: 160ms">
-              <summary>What do you confirm before introducing an engineer?</summary>
-              <p>The equipment or circuit they will own, whether ECSA registration is essential, and who they report to.</p>
-            </details>
           </div>
         </section>
 
@@ -185,38 +174,8 @@
       </div>
     </footer>
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Which engineering disciplines do you recruit?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Mechanical, process, electrical, and civil engineers, plus project engineers and engineering managers, for Gauteng employers from our Pretoria base."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you recruit engineers for mines and plants?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Mines, processing plants, EPCM firms, and civils contractors are the employers we brief for engineering roles."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What do you confirm before introducing an engineer?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The equipment or circuit they will own, whether ECSA registration is essential, and who they report to."
-            }
-          }
-        ]
-      }
-    </script>
+    <script src="js/jobs-config.js"></script>
+    <script src="js/industry-places.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/reveal.js"></script>
   </body>

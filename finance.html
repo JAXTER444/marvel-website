@@ -49,11 +49,12 @@
               Finance roles are shaped by the work behind the title. We look at the systems, the reporting cycle, and
               the decisions the person will own before we introduce anyone.
             </p>
-            <ul class="about-places">
-              <li>Pretoria</li>
-              <li>Gauteng</li>
-              <li>Nationwide</li>
-            </ul>
+            <ul
+              class="about-places"
+              data-departments="Finance & Banking|Finance"
+              data-fallback-places="Gauteng"
+              hidden
+            ></ul>
           </div>
           <img
             class="industry-photo reveal reveal-right"
@@ -73,12 +74,12 @@
             </p>
           </div>
           <ul class="role-grid">
-            <li class="reveal">Accountants and bookkeepers</li>
-            <li class="reveal" style="--reveal-delay: 70ms">Management accountants</li>
-            <li class="reveal" style="--reveal-delay: 140ms">Financial and credit analysts</li>
-            <li class="reveal" style="--reveal-delay: 210ms">Payroll and credit controllers</li>
-            <li class="reveal" style="--reveal-delay: 280ms">Finance business partners</li>
-            <li class="reveal" style="--reveal-delay: 350ms">Financial managers and controllers</li>
+            <li class="reveal">Accountants, financial managers, finance directors, and CFOs</li>
+            <li class="reveal" style="--reveal-delay: 70ms">Financial analysts and business analysts</li>
+            <li class="reveal" style="--reveal-delay: 140ms">Bookkeepers, accounts clerks, and creditors and debtors clerks</li>
+            <li class="reveal" style="--reveal-delay: 210ms">Payroll administrators and payroll managers</li>
+            <li class="reveal" style="--reveal-delay: 280ms">Auditors, tax specialists, and compliance professionals</li>
+            <li class="reveal" style="--reveal-delay: 350ms">Management accountants and cost accountants</li>
           </ul>
         </section>
 
@@ -93,21 +94,6 @@
             <div class="info-actions">
               <a class="btn btn-green" href="about.html#search-procedure">Learn more</a>
             </div>
-          </div>
-          <div class="faq">
-            <h2 class="reveal">Finance recruitment questions</h2>
-            <details class="reveal">
-              <summary>What do you need to know about the finance team?</summary>
-              <p>What the team closes each month, which systems they use, and where the role sits with operations.</p>
-            </details>
-            <details class="reveal" style="--reveal-delay: 80ms">
-              <summary>Do you place finance people in mining and construction businesses?</summary>
-              <p>Yes. Finance hiring often sits inside the same mining and construction businesses we already recruit for.</p>
-            </details>
-            <details class="reveal" style="--reveal-delay: 160ms">
-              <summary>What will a candidate know before they meet the team?</summary>
-              <p>The scope of the job and the stakeholders they will work with. We remain available after they join.</p>
-            </details>
           </div>
         </section>
 
@@ -184,38 +170,8 @@
       </div>
     </footer>
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What do you need to know about the finance team?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "What the team closes each month, which systems they use, and where the role sits with operations."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you place finance people in mining and construction businesses?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Finance hiring often sits inside the same mining and construction businesses we already recruit for."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What will a candidate know before they meet the team?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The scope of the job and the stakeholders they will work with. We remain available after they join."
-            }
-          }
-        ]
-      }
-    </script>
+    <script src="js/jobs-config.js"></script>
+    <script src="js/industry-places.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/reveal.js"></script>
   </body>

@@ -49,12 +49,12 @@
               Construction hiring has to fit the programme, not just the CV. We focus on the skills, tickets, and site
               experience a project needs to keep delivery moving.
             </p>
-            <ul class="about-places">
-              <li>Pretoria</li>
-              <li>Gauteng</li>
-              <li>North West</li>
-              <li>Mpumalanga</li>
-            </ul>
+            <ul
+              class="about-places"
+              data-departments="Construction"
+              data-fallback-places="Gauteng|Western Cape"
+              hidden
+            ></ul>
           </div>
           <img
             class="industry-photo reveal reveal-right"
@@ -94,21 +94,6 @@
             <div class="info-actions">
               <a class="btn btn-green" href="about.html#search-procedure">Learn more</a>
             </div>
-          </div>
-          <div class="faq">
-            <h2 class="reveal">Construction recruitment questions</h2>
-            <details class="reveal">
-              <summary>What do you need from a construction brief?</summary>
-              <p>The programme, the contract type, and who is already on the team. That shows who can step in without a long handover.</p>
-            </details>
-            <details class="reveal" style="--reveal-delay: 80ms">
-              <summary>Do you recruit onto mining projects?</summary>
-              <p>Yes. A large part of our construction work sits alongside mining projects, including site supervision and infrastructure.</p>
-            </details>
-            <details class="reveal" style="--reveal-delay: 160ms">
-              <summary>What do candidates hear before they interview?</summary>
-              <p>The site, the reporting line, and the pace of the job.</p>
-            </details>
           </div>
         </section>
 
@@ -185,38 +170,8 @@
       </div>
     </footer>
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What do you need from a construction brief?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The programme, the contract type, and who is already on the team. That shows who can step in without a long handover."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you recruit onto mining projects?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. A large part of our construction work sits alongside mining projects, including site supervision and infrastructure."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What do candidates hear before they interview?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The site, the reporting line, and the pace of the job."
-            }
-          }
-        ]
-      }
-    </script>
+    <script src="js/jobs-config.js"></script>
+    <script src="js/industry-places.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/reveal.js"></script>
   </body>

@@ -579,6 +579,70 @@ function clearFilters() {
   renderFilterPanel();
 }
 
+const FILTER_STORAGE_KEY = "marvelJobFilters";
+
+function readStoredFilters() {
+  try {
+    const raw = sessionStorage.getItem(FILTER_STORAGE_KEY);
+    if (!raw) return null;
+    sessionStorage.removeItem(FILTER_STORAGE_KEY);
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== "object") return null;
+    return {
+      provinces: Array.isArray(parsed.provinces)
+        ? parsed.provinces.map((value) => String(value).trim()).filter(Boolean)
+        : [],
+      departments: Array.isArray(parsed.departments)
+        ? parsed.departments.map((value) => String(value).trim()).filter(Boolean)
+        : [],
+    };
+  } catch {
+    return null;
+  }
+}
+
+function matchFilterValues(requested, available) {
+  const availableMap = new Map(available.map((value) => [value.toLowerCase(), value]));
+  const matched = [];
+  const seen = new Set();
+  for (const value of requested) {
+    const exact = availableMap.get(value.toLowerCase());
+    if (!exact || seen.has(exact)) continue;
+    seen.add(exact);
+    matched.push(exact);
+  }
+  return matched;
+}
+
+function applyFiltersFromUrl() {
+  const params = new URLSearchParams(location.search);
+  const stored = readStoredFilters();
+  const requestedProvinces = uniqueSorted([
+    ...params.getAll("province"),
+    ...(stored?.provinces ?? []),
+  ]);
+  const requestedDepartments = uniqueSorted([
+    ...params.getAll("department"),
+    ...(stored?.departments ?? []),
+  ]);
+
+  if (!requestedProvinces.length && !requestedDepartments.length) return false;
+
+  const options = filterOptions();
+  const provinces = matchFilterValues(requestedProvinces, options.provinces);
+  const departments = matchFilterValues(requestedDepartments, options.departments);
+
+  if (!provinces.length && !departments.length) return false;
+
+  activeFilters = {
+    ...emptyFilters(),
+    provinces,
+    departments,
+  };
+  expandedProvinces = new Set(provinces);
+  return true;
+}
+
 function setStatus(html) {
   board?.classList.add("is-message");
   board?.classList.remove("has-selection");
@@ -784,7 +848,9 @@ async function loadJobs() {
     const hash = decodeURIComponent(location.hash.replace(/^#/, ""));
     if (searchEl) searchEl.disabled = false;
     if (filterBtn) filterBtn.disabled = false;
+    const fromUrl = applyFiltersFromUrl();
     renderFilterPanel();
+    updateFilterChrome();
 
     if (hash && currentJobs.some((job) => job.id === hash)) {
       board?.classList.remove("is-message");
@@ -793,6 +859,14 @@ async function loadJobs() {
       selectJob(hash, { pushHash: false });
     } else {
       showBrowse();
+    }
+
+    if (fromUrl) {
+      window.scrollTo({ top: 0 });
+      toolbarEl?.classList.add("is-at-top");
+      toolbarEl?.classList.remove("is-collapsed");
+      lastToolbarScrollY = window.scrollY;
+      setFilterOpen(true);
     }
   } catch {
     currentJobs = [];

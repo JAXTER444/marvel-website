@@ -49,12 +49,12 @@
               Safety, health, environment, and quality hiring follows the site, not a generic officer title. From
               Pretoria we recruit SHEQ managers and safety officers for mines and construction employers in Gauteng.
             </p>
-            <ul class="about-places">
-              <li>Pretoria</li>
-              <li>Gauteng</li>
-              <li>North West</li>
-              <li>Mpumalanga</li>
-            </ul>
+            <ul
+              class="about-places"
+              data-departments="SHEQ|Health & Safety|Safety"
+              data-fallback-places="Gauteng|North West|Mpumalanga"
+              hidden
+            ></ul>
           </div>
           <img
             class="industry-photo reveal reveal-right"
@@ -105,21 +105,6 @@
             <div class="info-actions">
               <a class="btn btn-green" href="about.html#search-procedure">Learn more</a>
             </div>
-          </div>
-          <div class="faq">
-            <h2 class="reveal">SHEQ recruitment questions</h2>
-            <details class="reveal">
-              <summary>What is included in a SHEQ search?</summary>
-              <p>Safety officers, SHEQ managers, environmental officers, and site safety advisors for mines and construction employers.</p>
-            </details>
-            <details class="reveal" style="--reveal-delay: 80ms">
-              <summary>Where do you recruit SHEQ roles?</summary>
-              <p>From Pretoria, for employers in Gauteng, the North West, and Mpumalanga, including site-based appointments.</p>
-            </details>
-            <details class="reveal" style="--reveal-delay: 160ms">
-              <summary>What do you confirm on a SHEQ brief?</summary>
-              <p>The legal appointment, the shift, and the audits or investigations the person will own.</p>
-            </details>
           </div>
         </section>
 
@@ -186,38 +171,8 @@
       </div>
     </footer>
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is included in a SHEQ search?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Safety officers, SHEQ managers, environmental officers, and site safety advisors for mines and construction employers."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Where do you recruit SHEQ roles?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "From Pretoria, for employers in Gauteng, the North West, and Mpumalanga, including site-based appointments."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What do you confirm on a SHEQ brief?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The legal appointment, the shift, and the audits or investigations the person will own."
-            }
-          }
-        ]
-      }
-    </script>
+    <script src="js/jobs-config.js"></script>
+    <script src="js/industry-places.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/reveal.js"></script>
   </body>

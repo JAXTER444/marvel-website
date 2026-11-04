@@ -2460,6 +2460,21 @@ a {
   color: var(--ink);
 }
 
+.about-places a {
+  display: block;
+  margin: -8px -14px;
+  padding: 8px 14px;
+  color: inherit;
+  text-decoration: none;
+  border-radius: inherit;
+  cursor: pointer;
+}
+
+.about-places a:hover,
+.about-places a:focus-visible {
+  background: rgba(0, 116, 78, 0.04);
+}
+
 .about-where .reveal > p.about-hours {
   margin-top: 16px;
   font-size: 14px;

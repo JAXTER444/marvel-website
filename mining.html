@@ -49,12 +49,12 @@
               Mining recruitment depends on more than a matching job title. We learn the operation, the roster, and the
               tickets a role actually needs, then introduce people who can do the work.
             </p>
-            <ul class="about-places">
-              <li>Pretoria</li>
-              <li>Gauteng</li>
-              <li>North West</li>
-              <li>Mpumalanga</li>
-            </ul>
+            <ul
+              class="about-places"
+              data-departments="Mining & Quarrying|Mining"
+              data-fallback-places="Gauteng|North West|Mpumalanga|Limpopo"
+              hidden
+            ></ul>
           </div>
           <img
             class="industry-photo reveal reveal-right"
@@ -74,12 +74,11 @@
             </p>
           </div>
           <ul class="role-grid">
-            <li class="reveal">Mining engineers and geologists</li>
-            <li class="reveal" style="--reveal-delay: 70ms">Metallurgists and surveyors</li>
-            <li class="reveal" style="--reveal-delay: 140ms">Plant, drill, and equipment operators</li>
-            <li class="reveal" style="--reveal-delay: 210ms">Diesel mechanics and electricians</li>
-            <li class="reveal" style="--reveal-delay: 280ms">Safety and training officers</li>
-            <li class="reveal" style="--reveal-delay: 350ms">Supervisors, superintendents, and mine managers</li>
+            <li class="reveal">Operations</li>
+            <li class="reveal" style="--reveal-delay: 70ms">Mineral processing or metallurgy</li>
+            <li class="reveal" style="--reveal-delay: 140ms">Mining maintenance</li>
+            <li class="reveal" style="--reveal-delay: 210ms">Electrical, mechanical, or instrumentation</li>
+            <li class="reveal" style="--reveal-delay: 280ms">Mine safety, occupational health, or environmental professionals</li>
           </ul>
         </section>
 
@@ -98,21 +97,6 @@
             <div class="info-actions">
               <a class="btn btn-green" href="about.html#search-procedure">Learn more</a>
             </div>
-          </div>
-          <div class="faq">
-            <h2 class="reveal">Mining recruitment questions</h2>
-            <details class="reveal">
-              <summary>What do you ask before a mining search?</summary>
-              <p>How the team is structured, which shifts the role covers, and which qualifications are essential. The roster and the tickets have to be clear before we introduce anyone.</p>
-            </details>
-            <details class="reveal" style="--reveal-delay: 80ms">
-              <summary>Do you fill site-based roles?</summary>
-              <p>Yes. From Pretoria we recruit for mining employers in Gauteng, the North West, and Mpumalanga, including site-based roles.</p>
-            </details>
-            <details class="reveal" style="--reveal-delay: 160ms">
-              <summary>What do candidates know before they interview?</summary>
-              <p>The same detail we took from the site: the roster, the tickets, and how the role actually runs.</p>
-            </details>
           </div>
         </section>
 
@@ -189,38 +173,8 @@
       </div>
     </footer>
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What do you ask before a mining search?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "How the team is structured, which shifts the role covers, and which qualifications are essential. The roster and the tickets have to be clear before we introduce anyone."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you fill site-based roles?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. From Pretoria we recruit for mining employers in Gauteng, the North West, and Mpumalanga, including site-based roles."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What do candidates know before they interview?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The same detail we took from the site: the roster, the tickets, and how the role actually runs."
-            }
-          }
-        ]
-      }
-    </script>
+    <script src="js/jobs-config.js"></script>
+    <script src="js/industry-places.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/reveal.js"></script>
   </body>
