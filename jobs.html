@@ -102,12 +102,55 @@
             <div id="job-filter-body" class="jobs-filter-body"></div>
           </div>
         </div>
-        <div class="jobs-board is-message">
-          <div id="job-status" class="jobs-status">
-            <p class="jobs-loading">Loading open roles…</p>
+        <div class="jobs-board is-loading" aria-busy="true">
+          <div id="job-status" class="jobs-status" hidden>
+            <p class="sr-only">Loading open roles…</p>
           </div>
           <div class="jobs-layout">
-            <div id="job-list" class="job-list"></div>
+            <div id="job-list" class="job-list" aria-hidden="true">
+              <div class="job-card job-card-skeleton">
+                <span class="job-card-body">
+                  <span class="skeleton-line skeleton-title"></span>
+                  <span class="skeleton-line skeleton-meta"></span>
+                </span>
+                <span class="job-card-chevron" aria-hidden="true"></span>
+              </div>
+              <div class="job-card job-card-skeleton">
+                <span class="job-card-body">
+                  <span class="skeleton-line skeleton-title"></span>
+                  <span class="skeleton-line skeleton-meta"></span>
+                </span>
+                <span class="job-card-chevron" aria-hidden="true"></span>
+              </div>
+              <div class="job-card job-card-skeleton">
+                <span class="job-card-body">
+                  <span class="skeleton-line skeleton-title"></span>
+                  <span class="skeleton-line skeleton-meta"></span>
+                </span>
+                <span class="job-card-chevron" aria-hidden="true"></span>
+              </div>
+              <div class="job-card job-card-skeleton">
+                <span class="job-card-body">
+                  <span class="skeleton-line skeleton-title"></span>
+                  <span class="skeleton-line skeleton-meta"></span>
+                </span>
+                <span class="job-card-chevron" aria-hidden="true"></span>
+              </div>
+              <div class="job-card job-card-skeleton">
+                <span class="job-card-body">
+                  <span class="skeleton-line skeleton-title"></span>
+                  <span class="skeleton-line skeleton-meta"></span>
+                </span>
+                <span class="job-card-chevron" aria-hidden="true"></span>
+              </div>
+              <div class="job-card job-card-skeleton">
+                <span class="job-card-body">
+                  <span class="skeleton-line skeleton-title"></span>
+                  <span class="skeleton-line skeleton-meta"></span>
+                </span>
+                <span class="job-card-chevron" aria-hidden="true"></span>
+              </div>
+            </div>
             <div id="jobs-detail-stage" class="jobs-detail-stage" hidden>
               <article id="job-detail" class="job-detail"></article>
               <aside id="job-apply-aside" class="job-detail-aside" aria-label="Apply"></aside>

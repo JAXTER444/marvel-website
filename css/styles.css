@@ -3235,6 +3235,17 @@ a {
   display: none;
 }
 
+.jobs-board.is-loading .jobs-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 .jobs-status p,
 .jobs-loading,
 .jobs-empty {
@@ -3323,6 +3334,112 @@ a {
 .job-card.is-selected .job-card-chevron {
   transform: rotate(45deg);
   border-color: var(--green);
+}
+
+.job-card-skeleton {
+  pointer-events: none;
+  cursor: default;
+}
+
+.job-card-skeleton:hover,
+.job-card-skeleton:focus-visible {
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+}
+
+.job-card-skeleton .job-card-chevron {
+  opacity: 0.35;
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+.skeleton-line {
+  display: block;
+  height: 1em;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.06) 0%,
+    rgba(0, 0, 0, 0.1) 40%,
+    rgba(0, 0, 0, 0.06) 80%
+  );
+  background-size: 200% 100%;
+  animation: jobs-skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+.skeleton-title {
+  width: 58%;
+  height: 1.05em;
+  margin-top: 0.12em;
+}
+
+.skeleton-meta {
+  width: 42%;
+  height: 0.85em;
+  margin-top: 0.15em;
+}
+
+.job-card-skeleton:nth-child(2) .skeleton-title {
+  width: 72%;
+}
+
+.job-card-skeleton:nth-child(2) .skeleton-meta {
+  width: 54%;
+}
+
+.job-card-skeleton:nth-child(3) .skeleton-title {
+  width: 49%;
+}
+
+.job-card-skeleton:nth-child(3) .skeleton-meta {
+  width: 36%;
+}
+
+.job-card-skeleton:nth-child(4) .skeleton-title {
+  width: 66%;
+}
+
+.job-card-skeleton:nth-child(4) .skeleton-meta {
+  width: 48%;
+}
+
+.job-card-skeleton:nth-child(5) .skeleton-title {
+  width: 53%;
+}
+
+.job-card-skeleton:nth-child(5) .skeleton-meta {
+  width: 39%;
+}
+
+.job-card-skeleton:nth-child(6) .skeleton-title {
+  width: 61%;
+}
+
+.job-card-skeleton:nth-child(6) .skeleton-meta {
+  width: 45%;
+}
+
+.job-card-skeleton:nth-child(odd) .skeleton-line {
+  animation-delay: 0.15s;
+}
+
+.job-card-skeleton:nth-child(3n) .skeleton-line {
+  animation-delay: 0.3s;
+}
+
+@keyframes jobs-skeleton-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-line {
+    animation: none;
+    background: rgba(0, 0, 0, 0.08);
+  }
 }
 
 .jobs-board.has-selection .job-list {
@@ -3917,5 +4034,17 @@ a {
   .job-card-chevron {
     width: 6px;
     height: 6px;
+  }
+
+  .skeleton-title {
+    height: 0.85em;
+  }
+
+  .skeleton-meta {
+    height: 0.7em;
+  }
+
+  .skeleton-line {
+    border-radius: 4px;
   }
 }

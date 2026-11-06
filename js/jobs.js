@@ -643,7 +643,48 @@ function applyFiltersFromUrl() {
   return true;
 }
 
+const SKELETON_COUNT = 6;
+
+function skeletonCardsHtml(count = SKELETON_COUNT) {
+  return Array.from({ length: count }, () => `
+    <div class="job-card job-card-skeleton">
+      <span class="job-card-body">
+        <span class="skeleton-line skeleton-title"></span>
+        <span class="skeleton-line skeleton-meta"></span>
+      </span>
+      <span class="job-card-chevron" aria-hidden="true"></span>
+    </div>
+  `).join("");
+}
+
+function showLoadingSkeleton() {
+  board?.classList.add("is-loading");
+  board?.classList.remove("is-message", "has-selection");
+  board?.setAttribute("aria-busy", "true");
+  if (statusEl) {
+    statusEl.hidden = false;
+    statusEl.innerHTML = `<p class="sr-only">Loading open roles…</p>`;
+  }
+  if (listEl) {
+    listEl.setAttribute("aria-hidden", "true");
+    listEl.innerHTML = skeletonCardsHtml();
+  }
+  if (detailStage) detailStage.hidden = true;
+  if (detailEl) detailEl.innerHTML = "";
+  if (applyAsideEl) applyAsideEl.innerHTML = "";
+  if (searchEl) searchEl.disabled = true;
+  if (filterBtn) filterBtn.disabled = true;
+  setFilterOpen(false);
+}
+
+function clearLoadingState() {
+  board?.classList.remove("is-loading");
+  board?.removeAttribute("aria-busy");
+  listEl?.removeAttribute("aria-hidden");
+}
+
 function setStatus(html) {
+  clearLoadingState();
   board?.classList.add("is-message");
   board?.classList.remove("has-selection");
   if (!statusEl) return;
@@ -806,6 +847,7 @@ function selectJob(id, { pushHash = true } = {}) {
 
 function showBrowse() {
   selectedId = null;
+  clearLoadingState();
   board?.classList.remove("is-message", "has-selection");
   statusEl.hidden = true;
   statusEl.innerHTML = "";
@@ -829,7 +871,7 @@ async function loadJobs() {
     return;
   }
 
-  setStatus(`<p class="jobs-loading">Loading open roles…</p>`);
+  showLoadingSkeleton();
 
   try {
     const response = await fetch(config.apiUrl, {
@@ -853,6 +895,7 @@ async function loadJobs() {
     updateFilterChrome();
 
     if (hash && currentJobs.some((job) => job.id === hash)) {
+      clearLoadingState();
       board?.classList.remove("is-message");
       statusEl.hidden = true;
       statusEl.innerHTML = "";
