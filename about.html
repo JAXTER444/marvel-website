@@ -83,43 +83,43 @@
           <div class="about-audiences">
             <a class="about-card reveal" href="mining.html">
               <span class="about-card-photo">
-                <img src="assets/images/industry-mining.jpg" alt="Yellow haul truck at a mine" />
+                <img src="assets/images/industry-mining.jpg" alt="Yellow haul truck at a mine" data-edit="images.industry-mining" />
               </span>
-              <h3>Mining</h3>
-              <p>Operators and leaders who can keep a mine site moving under real conditions.</p>
+              <h3 data-edit="industries.mining.title">Mining</h3>
+              <p data-edit="industries.mining.blurb">Operators and leaders who can keep a mine site moving under real conditions.</p>
             </a>
             <a class="about-card reveal" href="construction.html" style="--reveal-delay: 90ms">
               <span class="about-card-photo">
-                <img src="assets/images/industry-construction.jpg" alt="Construction workers on scaffolding at a building site" />
+                <img src="assets/images/industry-construction.jpg" alt="Construction workers on scaffolding at a building site" data-edit="images.industry-construction" />
               </span>
-              <h3>Construction</h3>
-              <p>Site leaders, surveyors, and trades who can step into a live programme.</p>
+              <h3 data-edit="industries.construction.title">Construction</h3>
+              <p data-edit="industries.construction.blurb">Site leaders, surveyors, and trades who can step into a live programme.</p>
             </a>
             <a class="about-card reveal" href="finance.html" style="--reveal-delay: 180ms">
               <span class="about-card-photo">
-                <img src="assets/images/industry-finance.jpg" alt="Hands reviewing a financial report" />
+                <img src="assets/images/industry-finance.jpg" alt="Hands reviewing a financial report" data-edit="images.industry-finance" />
               </span>
-              <h3>Finance</h3>
-              <p>Accountants and leaders, matched to the cycle and decisions they own.</p>
+              <h3 data-edit="industries.finance.title">Finance</h3>
+              <p data-edit="industries.finance.blurb">Accountants and leaders, matched to the cycle and decisions they own.</p>
             </a>
             <a class="about-card reveal" href="engineering.html" style="--reveal-delay: 270ms">
               <span class="about-card-photo">
-                <img src="assets/images/industry-engineering.jpg" alt="Engineer with a tablet on a plant floor" />
+                <img src="assets/images/industry-engineering.jpg" alt="Engineer with a tablet on a plant floor" data-edit="images.industry-engineering" />
               </span>
-              <h3>Engineering</h3>
-              <p>Mechanical, process, electrical, and civil engineers for Gauteng employers.</p>
+              <h3 data-edit="industries.engineering.title">Engineering</h3>
+              <p data-edit="industries.engineering.blurb">Mechanical, process, electrical, and civil engineers for Gauteng employers.</p>
             </a>
             <a class="about-card reveal" href="manufacturing.html" style="--reveal-delay: 360ms">
               <span class="about-card-photo">
-                <img src="assets/images/industry-manufacturing.jpg" alt="Engineer at a laptop in a manufacturing assembly plant" />
+                <img src="assets/images/industry-manufacturing.jpg" alt="Engineer at a laptop in a manufacturing assembly plant" data-edit="images.industry-manufacturing" />
               </span>
-              <h3>Manufacturing</h3>
-              <p>Production, plant, and quality people who keep a line running to standard.</p>
+              <h3 data-edit="industries.manufacturing.title">Manufacturing</h3>
+              <p data-edit="industries.manufacturing.blurb">Production, plant, and quality people who keep a line running to standard.</p>
             </a>
             <a class="about-card reveal" href="contact.html" style="--reveal-delay: 450ms">
               <span class="about-card-photo about-card-photo-plain" aria-hidden="true"></span>
-              <h3>Other roles</h3>
-              <p>Equally specific when the role sits outside these industries.</p>
+              <h3 data-edit="industries.other.title">Other roles</h3>
+              <p data-edit="industries.other.blurb">Equally specific when the role sits outside these industries.</p>
             </a>
           </div>
         </section>
@@ -325,6 +325,7 @@
               alt="Three engineers reviewing a tablet on a plant floor"
               width="444"
               height="297"
+              data-edit="images.people-team"
             />
             <div class="reveal reveal-right" style="--reveal-delay: 120ms">
               <h2>Where we work</h2>
@@ -332,12 +333,12 @@
                 We are based in Pretoria and recruit across South Africa, with regular work in Gauteng, the North West,
                 and Mpumalanga.
               </p>
-              <p class="about-hours">Weekdays, 08:00–17:00</p>
+              <p class="about-hours" data-edit="contact.hours">Weekdays, 08:00–17:00</p>
               <p>
-                <a href="mailto:admin@marvelplacement.co.za">admin@marvelplacement.co.za</a>
+                <a href="mailto:admin@marvelplacement.co.za" data-edit="contact.email">admin@marvelplacement.co.za</a>
               </p>
               <p>
-                <a href="tel:+27120300322">+27 12 030 0322</a>
+                <a href="tel:+27120300322" data-edit="contact.phone">+27 12 030 0322</a>
               </p>
             </div>
           </div>
@@ -348,7 +349,7 @@
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
-            <figcaption>37 Via Salara Crescent, Irene, Pretoria</figcaption>
+            <figcaption data-edit="contact.address">37 Via Salara Crescent, Irene, Pretoria</figcaption>
           </figure>
           <div class="faq">
             <h2 class="reveal">Questions about Marvel</h2>
@@ -386,7 +387,6 @@
           <a href="index.html#industries">Industries</a>
           <a href="contact.html">Contact</a>
           <a href="privacy.html">Privacy</a>
-          <a href="terms.html">Terms</a>
         </nav>
         <address class="site-footer-meta">
           <a href="mailto:admin@marvelplacement.co.za">admin@marvelplacement.co.za</a>
@@ -423,5 +423,8 @@
     <script src="js/nav.js"></script>
     <script src="js/mark-lens.js"></script>
     <script src="js/reveal.js"></script>
+    <script src="js/content.js"></script>
+    <script src="js/stats-config.js"></script>
+    <script src="js/stats.js"></script>
   </body>
 </html>
