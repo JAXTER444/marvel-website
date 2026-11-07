@@ -1,12 +1,12 @@
 {
   "home": {
-    "heroLine": "Search and selection across Southern Africa for mining, construction, finance, engineering, and manufacturing.",
+    "heroLine": "Search and selection across Southern Africa for construction & mining, engineering & manufacturing, accounting & finance, sales & marketing, HR & administration, and IT & ICT.",
     "aboutHeading": "Matched to the work, not just the job title.",
     "aboutBody": "Finding the right candidate takes more than matching a CV to a job description. We take the time to understand the role, the business and the people behind it, connecting employers with professionals who bring the right experience, skills and fit.",
     "industriesHeading": "Recruitment built around your industry.",
-    "industriesIntro": "Every industry has its own demands. We match roles to the skills and experience each site, plant, or team actually needs—and hire for other professional roles when the brief sits outside these industries.",
+    "industriesIntro": "Every industry has its own demands. We match roles to the skills and experience each site, plant, or team actually needs.",
     "placementsHeading": "Placements that stick.",
-    "placementsBody": "Employers get people who fit the role and the site. Candidates get opportunities matched to their experience and where they want to go next—across mining, construction, finance, engineering, manufacturing, and other professional fields.",
+    "placementsBody": "Employers get people who fit the role and the site. Candidates get opportunities matched to their experience and where they want to go next—across construction & mining, engineering & manufacturing, accounting & finance, sales & marketing, HR & administration, and IT & ICT.",
     "statsNote": "Figures from our desk, updated 2026.",
     "stats": {
       "placements": { "value": 1240, "label": "Successful Placements" },
@@ -16,29 +16,29 @@
     }
   },
   "industries": {
-    "mining": {
-      "title": "Mining",
-      "blurb": "Operators and leaders who can keep a mine site moving under real conditions."
+    "constructionMining": {
+      "title": "Construction & Mining",
+      "blurb": "Site leaders, trades, and operational people who keep projects and mine sites moving."
     },
-    "construction": {
-      "title": "Construction",
-      "blurb": "Site leaders, surveyors, and trades who can step into a live programme."
+    "engineeringManufacturing": {
+      "title": "Engineering & Manufacturing",
+      "blurb": "Engineers, production, and plant people who keep work running to standard."
     },
-    "finance": {
-      "title": "Finance",
+    "accountingFinance": {
+      "title": "Accounting & Finance",
       "blurb": "Accountants and leaders, matched to the cycle and decisions they own."
     },
-    "engineering": {
-      "title": "Engineering",
-      "blurb": "Mechanical, process, electrical, and civil engineers for Gauteng employers."
+    "salesMarketing": {
+      "title": "Sales & Marketing",
+      "blurb": "Business development, account management, and marketing roles that grow revenue."
     },
-    "manufacturing": {
-      "title": "Manufacturing",
-      "blurb": "Production, plant, and quality people who keep a line running to standard."
+    "hrAdministration": {
+      "title": "HR & Administration",
+      "blurb": "HR generalists, payroll, and administrators who keep people processes running."
     },
-    "other": {
-      "title": "Other roles",
-      "blurb": "Equally specific when the role sits outside these industries."
+    "itIct": {
+      "title": "IT & ICT",
+      "blurb": "Support, infrastructure, and technology people who keep systems reliable."
     }
   },
   "contact": {
@@ -46,28 +46,32 @@
     "phone": "+27 12 030 0322",
     "phoneHref": "+27120300322",
     "address": "37 Via Salara Crescent, Irene, Pretoria",
-    "hours": "Weekdays, 08:00–17:00. Mining, construction, finance, engineering, SHEQ, and other professional roles."
+    "hours": "Weekdays, 08:00–17:00. Construction & mining, engineering & manufacturing, accounting & finance, sales & marketing, HR & administration, and IT & ICT."
   },
   "images": {
-    "industry-mining": {
-      "alt": "Yellow haul truck at a mine",
-      "path": "assets/images/industry-mining.jpg"
-    },
-    "industry-construction": {
+    "industry-construction-mining": {
       "alt": "Construction workers on scaffolding at a building site",
       "path": "assets/images/industry-construction.jpg"
     },
-    "industry-finance": {
+    "industry-engineering-manufacturing": {
+      "alt": "Industrial robots assembling a car chassis on a plant floor",
+      "path": "assets/images/industry-engineering.jpg"
+    },
+    "industry-accounting-finance": {
       "alt": "Hands reviewing a financial report",
       "path": "assets/images/industry-finance.jpg"
     },
-    "industry-engineering": {
-      "alt": "Engineer with a tablet on a plant floor",
-      "path": "assets/images/industry-engineering.jpg"
+    "industry-sales-marketing": {
+      "alt": "Hands marking up marketing sketches and campaign notes on a desk",
+      "path": "assets/images/industry-sales-marketing.jpg"
     },
-    "industry-manufacturing": {
-      "alt": "Engineer at a laptop in a manufacturing assembly plant",
-      "path": "assets/images/industry-manufacturing.jpg"
+    "industry-hr-administration": {
+      "alt": "HR colleagues reviewing documents at an office desk",
+      "path": "assets/images/industry-hr-administration.jpg"
+    },
+    "industry-it-ict": {
+      "alt": "Developer working at a dual-monitor desk with code on screen",
+      "path": "assets/images/industry-it-ict.jpg"
     },
     "industry-sheq": {
       "alt": "Safety inspector with a clipboard and hard hat",

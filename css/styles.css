@@ -488,8 +488,8 @@ a {
   font-family: var(--heading);
   font-style: italic;
   font-weight: 400;
-  font-size: 26px;
-  line-height: 1.25;
+  font-size: 15px;
+  line-height: 1.4;
   letter-spacing: normal;
   color: var(--ink);
 }
@@ -1367,8 +1367,8 @@ a {
   }
 
   .hero-bar p {
-    font-size: 16px;
-    line-height: 1.35;
+    font-size: 13px;
+    line-height: 1.4;
   }
 
   .section-heading {

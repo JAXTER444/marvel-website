@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    { "source": "/mining", "destination": "/construction-mining", "permanent": true },
+    { "source": "/mining.html", "destination": "/construction-mining.html", "permanent": true },
+    { "source": "/construction", "destination": "/construction-mining", "permanent": true },
+    { "source": "/construction.html", "destination": "/construction-mining.html", "permanent": true },
+    { "source": "/engineering", "destination": "/engineering-manufacturing", "permanent": true },
+    { "source": "/engineering.html", "destination": "/engineering-manufacturing.html", "permanent": true },
+    { "source": "/manufacturing", "destination": "/engineering-manufacturing", "permanent": true },
+    { "source": "/manufacturing.html", "destination": "/engineering-manufacturing.html", "permanent": true },
+    { "source": "/finance", "destination": "/accounting-finance", "permanent": true },
+    { "source": "/finance.html", "destination": "/accounting-finance.html", "permanent": true }
+  ]
+}
