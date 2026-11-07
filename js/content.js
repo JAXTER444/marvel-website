@@ -96,24 +96,53 @@
 
     const placements = document.querySelector(".stat-1 .stat-value");
     const years = document.querySelector(".stat-2 .stat-value");
-    const timeToFill = document.querySelector(".stat-3 .stat-value");
+    const vacancies = document.querySelector(".stat-3 .stat-value");
     const repeat = document.querySelector(".stat-4 .stat-value");
     const labels = {
       placements: document.querySelector(".stat-1 .stat-label"),
       years: document.querySelector(".stat-2 .stat-label"),
-      timeToFill: document.querySelector(".stat-3 .stat-label"),
+      vacancies: document.querySelector(".stat-3 .stat-label"),
       repeatRate: document.querySelector(".stat-4 .stat-label"),
     };
 
+    const vacancyStat = stats.vacancies || stats.timeToFill;
     applyStat(placements, stats.placements.value, "", "space");
     applyStat(years, stats.years.value, stats.years.suffix || "+");
-    applyStat(timeToFill, stats.timeToFill.value, stats.timeToFill.suffix || " Days");
+    if (vacancyStat) {
+      applyStat(vacancies, vacancyStat.value, vacancyStat.suffix || "");
+      if (vacancies) vacancies.removeAttribute("data-suffix");
+    }
     applyStat(repeat, stats.repeatRate.value, stats.repeatRate.suffix || "%");
 
     setText(labels.placements, stats.placements.label);
     setText(labels.years, stats.years.label);
-    setText(labels.timeToFill, stats.timeToFill.label);
+    setText(labels.vacancies, (vacancyStat && vacancyStat.label) || "Current vacancies");
     setText(labels.repeatRate, stats.repeatRate.label);
+  }
+
+  function refreshVacancyCount() {
+    const config = window.MARVEL_JOBS || {};
+    const apiUrl = typeof config.apiUrl === "string" ? config.apiUrl.trim() : "";
+    const apiKey = typeof config.apiKey === "string" ? config.apiKey.trim() : "";
+    const vacancies = document.querySelector(".stat-3 .stat-value");
+    if (!vacancies || !apiUrl || !apiKey) return;
+
+    fetch(apiUrl, {
+      headers: { Authorization: `Bearer ${apiKey}` },
+      cache: "no-store",
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error("jobs missing");
+        return response.json();
+      })
+      .then((data) => {
+        const jobs = Array.isArray(data.jobs) ? data.jobs : [];
+        applyStat(vacancies, jobs.length, "");
+        vacancies.removeAttribute("data-suffix");
+      })
+      .catch(() => {
+        /* Keep static / content fallback. */
+      });
   }
 
   function applyImageAlts(content) {
@@ -137,8 +166,10 @@
       applyContact(content);
       applyHomeStats(content);
       applyImageAlts(content);
+      refreshVacancyCount();
     })
     .catch(() => {
       /* Keep static HTML fallback. */
+      refreshVacancyCount();
     });
 })();

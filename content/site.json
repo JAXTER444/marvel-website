@@ -1,17 +1,17 @@
 {
   "home": {
-    "heroLine": "Search and selection across Southern Africa for construction & mining, engineering & manufacturing, accounting & finance, sales & marketing, HR & administration, and IT & ICT.",
+    "heroLine": "A South African Consultancy, built around the placement.",
     "aboutHeading": "Matched to the work, not just the job title.",
     "aboutBody": "Finding the right candidate takes more than matching a CV to a job description. We take the time to understand the role, the business and the people behind it, connecting employers with professionals who bring the right experience, skills and fit.",
     "industriesHeading": "Recruitment built around your industry.",
     "industriesIntro": "Every industry has its own demands. We match roles to the skills and experience each site, plant, or team actually needs.",
-    "placementsHeading": "Placements that stick.",
-    "placementsBody": "Employers get people who fit the role and the site. Candidates get opportunities matched to their experience and where they want to go next—across construction & mining, engineering & manufacturing, accounting & finance, sales & marketing, HR & administration, and IT & ICT.",
+    "placementsHeading": "Placements that last.",
+    "placementsBody": "We look beyond the job title to understand the role, the working environment and what makes someone the right fit. Employers find people suited to their business, while candidates find opportunities that align with their experience and ambitions. Across six industry sectors, we bring both sides together to build lasting working relationships.",
     "statsNote": "Figures from our desk, updated 2026.",
     "stats": {
       "placements": { "value": 1240, "label": "Successful Placements" },
       "years": { "value": 32, "suffix": "+", "label": "Years of combined experience" },
-      "timeToFill": { "value": 18, "suffix": " Days", "label": "Average time to fill a role" },
+      "vacancies": { "value": 25, "label": "Current vacancies" },
       "repeatRate": { "value": 82, "suffix": "%", "label": "Client Repeat Rate" }
     }
   },
@@ -46,12 +46,12 @@
     "phone": "+27 12 030 0322",
     "phoneHref": "+27120300322",
     "address": "37 Via Salara Crescent, Irene, Pretoria",
-    "hours": "Weekdays, 08:00–17:00. Construction & mining, engineering & manufacturing, accounting & finance, sales & marketing, HR & administration, and IT & ICT."
+    "hours": "Weekdays, 07h00–16h00"
   },
   "images": {
     "industry-construction-mining": {
-      "alt": "Construction workers on scaffolding at a building site",
-      "path": "assets/images/industry-construction.jpg"
+      "alt": "Mining haul truck at an open-pit operation",
+      "path": "assets/images/industry-mining.jpg"
     },
     "industry-engineering-manufacturing": {
       "alt": "Industrial robots assembling a car chassis on a plant floor",
@@ -78,7 +78,7 @@
       "path": "assets/images/industry-sheq.jpg"
     },
     "people-team": {
-      "alt": "Three engineers reviewing a tablet on a plant floor",
+      "alt": "Two colleagues reviewing plans and notes together at a desk",
       "path": "assets/images/people-team.jpg"
     },
     "marvel-meta": {
