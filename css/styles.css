@@ -488,7 +488,7 @@ a {
   font-family: var(--heading);
   font-style: italic;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.4;
   letter-spacing: normal;
   color: var(--ink);
@@ -2941,6 +2941,31 @@ a {
   will-change: transform, opacity;
 }
 
+.jobs-toolbar-row {
+  --jobs-submit-cv-slot: 9.5rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  /* Equal side slots keep the searchbar centered and clear of the button. */
+  padding-inline: var(--jobs-submit-cv-slot);
+}
+
+.jobs-submit-cv {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  flex-shrink: 0;
+  height: 40px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  border-radius: 24px;
+}
+
 .jobs-toolbar.is-collapsed {
   transform: translateY(calc(-100% - 70px));
   opacity: 0;
@@ -3978,6 +4003,27 @@ a {
   .jobs-intro h1,
   .job-detail h2 {
     font-size: 30px;
+  }
+
+  .jobs-toolbar-row {
+    justify-content: flex-start;
+    gap: 8px;
+    padding-inline: 0;
+  }
+
+  .jobs-toolbar-row .jobs-searchbar {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
+    max-width: 680px;
+  }
+
+  .jobs-submit-cv {
+    position: static;
+    transform: none;
+    height: 46px;
+    padding: 0 14px;
+    font-size: 13px;
   }
 
   .jobs-searchbar {

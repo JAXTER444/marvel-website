@@ -882,7 +882,7 @@ async function loadJobs() {
     currentJobs = Array.isArray(data.jobs) ? data.jobs : [];
     if (!currentJobs.length) {
       setStatus(
-        `<p>No open roles right now.</p><a class="btn btn-dark" href="contact.html">Tell us what you’re looking for</a>`,
+        `<p>No open roles right now.</p><a class="btn btn-green" href="https://cooptatio.vercel.app/apply/vacancy-not-found" target="_blank" rel="noopener noreferrer">Submit CV</a>`,
       );
       return;
     }
