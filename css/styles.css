@@ -2957,7 +2957,8 @@ a {
   right: 0;
   top: calc(6px + (52px / 2));
   transform: translateY(-50%);
-  z-index: 10;
+  /* Above the sticky toolbar padding so the link stays clickable. */
+  z-index: 19;
   flex-shrink: 0;
   height: 40px;
   padding: 0 20px;

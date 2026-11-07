@@ -7,13 +7,18 @@ const applyAsideEl = document.querySelector("#job-apply-aside");
 const statusEl = document.querySelector("#job-status");
 const searchEl = document.querySelector("#job-search");
 const toolbarEl = document.querySelector(".jobs-toolbar");
+const submitCvEl = document.querySelector(".jobs-submit-cv");
 const filterBtn = document.querySelector("#job-filter-btn");
 const filterBadge = document.querySelector("#job-filter-badge");
 const filterPanel = document.querySelector("#job-filter-panel");
 const filterBody = document.querySelector("#job-filter-body");
 const filterClear = document.querySelector("#job-filter-clear");
 
+const SUBMIT_CV_FALLBACK = "https://cooptatio.vercel.app/apply/vacancy-not-found";
+
 let currentJobs = [];
+/** @type {{ url: string, label: string }} */
+let submitCvLink = { url: SUBMIT_CV_FALLBACK, label: "Submit CV" };
 let selectedId = null;
 let searchQuery = "";
 let filterOpen = false;
@@ -218,9 +223,49 @@ function renderOverview(job) {
   `;
 }
 
+function isSubmitCvIntake(job) {
+  const id = String(job?.id ?? "").toLowerCase();
+  const title = String(job?.title ?? "").toLowerCase();
+  return id === "unlisted" || title.includes("vacancy not found");
+}
+
+/** Strip CR/LF and control chars the API sometimes embeds in URLs. */
+function cleanApplyUrl(value) {
+  return String(value ?? "")
+    .replace(/[\u0000-\u001F\u007F]+/g, "")
+    .trim();
+}
+
+/** Public Apply landing for an intake vacancy (not the /form step). */
+function submitCvLandingFromJob(job) {
+  try {
+    const url = new URL(cleanApplyUrl(job.applyUrl));
+    const match = /\/apply\/([^/]+)/.exec(url.pathname);
+    if (match?.[1]) return `${url.origin}/apply/${match[1]}`;
+  } catch {
+    /* fall through */
+  }
+  return SUBMIT_CV_FALLBACK;
+}
+
+function bindSubmitCv(submitCv, fallbackJob) {
+  const url =
+    cleanApplyUrl(submitCv?.url) ||
+    (fallbackJob ? submitCvLandingFromJob(fallbackJob) : SUBMIT_CV_FALLBACK);
+  const label =
+    (typeof submitCv?.label === "string" && submitCv.label.trim()) || "Submit CV";
+  submitCvLink = { url, label };
+  if (submitCvEl instanceof HTMLAnchorElement) {
+    submitCvEl.href = url;
+    submitCvEl.textContent = label;
+    submitCvEl.hidden = false;
+  }
+  return submitCvLink;
+}
+
 function applyOrigin(job) {
   try {
-    return new URL(job.applyUrl).origin;
+    return new URL(cleanApplyUrl(job.applyUrl)).origin;
   } catch {
     return "https://cooptatio.vercel.app";
   }
@@ -229,7 +274,7 @@ function applyOrigin(job) {
 function applySlug(job) {
   if (job.id) return String(job.id);
   try {
-    const path = new URL(job.applyUrl).pathname;
+    const path = new URL(cleanApplyUrl(job.applyUrl)).pathname;
     const match = /\/apply\/([^/]+)/.exec(path);
     return match?.[1] ?? "";
   } catch {
@@ -881,10 +926,13 @@ async function loadJobs() {
     });
     if (!response.ok) throw new Error("Request failed");
     const data = await response.json();
-    currentJobs = Array.isArray(data.jobs) ? data.jobs : [];
+    const rawJobs = Array.isArray(data.jobs) ? data.jobs : [];
+    const intakeJob = rawJobs.find(isSubmitCvIntake);
+    currentJobs = rawJobs.filter((job) => !isSubmitCvIntake(job));
+    const cv = bindSubmitCv(data.submitCv, intakeJob);
     if (!currentJobs.length) {
       setStatus(
-        `<p>No open roles right now.</p><a class="btn btn-green" href="https://cooptatio.vercel.app/apply/vacancy-not-found" target="_blank" rel="noopener noreferrer">Submit CV</a>`,
+        `<p>No open roles right now.</p><a class="btn btn-green" href="${escapeHtml(cv.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(cv.label)}</a>`,
       );
       return;
     }
