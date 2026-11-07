@@ -2900,8 +2900,7 @@ a {
 }
 
 .jobs-intro,
-.jobs-toolbar,
-.jobs-board {
+.jobs-sticky-region {
   position: relative;
   z-index: 2;
   width: min(1400px, 100%);
@@ -2927,38 +2926,38 @@ a {
   color: var(--ink);
 }
 
+.jobs-sticky-region {
+  --jobs-submit-cv-slot: 9.5rem;
+}
+
+.jobs-board {
+  position: relative;
+  z-index: 2;
+}
+
 .jobs-toolbar {
   position: sticky;
   top: 62px;
-  z-index: 35;
+  z-index: 18;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
   margin-bottom: 22px;
-  padding: 6px 0 10px;
+  /* Equal side slots keep the searchbar centered and clear of the button. */
+  padding: 6px var(--jobs-submit-cv-slot) 10px;
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     opacity 0.28s ease;
   will-change: transform, opacity;
 }
 
-.jobs-toolbar-row {
-  --jobs-submit-cv-slot: 9.5rem;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  box-sizing: border-box;
-  /* Equal side slots keep the searchbar centered and clear of the button. */
-  padding-inline: var(--jobs-submit-cv-slot);
-}
-
 .jobs-submit-cv {
   position: absolute;
   right: 0;
-  top: 50%;
+  top: calc(6px + (52px / 2));
   transform: translateY(-50%);
-  z-index: 1;
+  z-index: 10;
   flex-shrink: 0;
   height: 40px;
   padding: 0 20px;
@@ -3262,7 +3261,8 @@ a {
   display: none;
 }
 
-.panel-jobs:has(.jobs-board.is-message) .jobs-toolbar {
+.panel-jobs:has(.jobs-board.is-message) .jobs-toolbar,
+.panel-jobs:has(.jobs-board.is-message) .jobs-submit-cv {
   display: none;
 }
 
@@ -3959,10 +3959,23 @@ a {
   }
 
   .job-detail-aside {
+    display: contents;
     position: static;
-    order: 1;
     max-width: none;
     width: 100%;
+  }
+
+  .jobs-overview-card {
+    order: -1;
+  }
+
+  .job-detail {
+    order: 0;
+  }
+
+  .job-detail-aside-actions,
+  .easy-apply-card {
+    order: 1;
   }
 }
 
@@ -4005,22 +4018,22 @@ a {
     font-size: 30px;
   }
 
-  .jobs-toolbar-row {
-    justify-content: flex-start;
-    gap: 8px;
-    padding-inline: 0;
+  .jobs-sticky-region {
+    --jobs-submit-cv-slot: 6.75rem;
   }
 
-  .jobs-toolbar-row .jobs-searchbar {
-    flex: 1 1 auto;
-    min-width: 0;
+  .jobs-toolbar {
+    align-items: stretch;
+    padding-left: 0;
+  }
+
+  .jobs-toolbar .jobs-searchbar {
     width: auto;
-    max-width: 680px;
+    max-width: none;
   }
 
   .jobs-submit-cv {
-    position: static;
-    transform: none;
+    top: calc(6px + (46px / 2));
     height: 46px;
     padding: 0 14px;
     font-size: 13px;

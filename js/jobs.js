@@ -841,7 +841,9 @@ function selectJob(id, { pushHash = true } = {}) {
         behavior: "smooth",
       });
     }
-    detailStage?.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Scroll to the description panel, not the stage — on mobile Overview
+    // sits above the description, but opening a role should still land on it.
+    detailEl?.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 }
 
