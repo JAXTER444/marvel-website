@@ -3509,11 +3509,20 @@ a {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
+.job-detail-heading-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 14px;
+  min-height: 24px;
+}
+
 .jobs-back {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin: 0 0 14px;
+  margin: 0;
   padding: 0;
   border: 0;
   background: none;
@@ -3526,6 +3535,40 @@ a {
 .jobs-back:hover,
 .jobs-back:focus-visible {
   color: var(--green);
+}
+
+.jobs-share {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 0 auto;
+  padding: 6px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--body);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.jobs-share svg {
+  flex-shrink: 0;
+}
+
+.jobs-share:hover,
+.jobs-share:focus-visible {
+  color: var(--green);
+  border-color: rgba(15, 122, 74, 0.35);
+  background: rgba(15, 122, 74, 0.06);
+}
+
+.jobs-share.is-copied {
+  color: var(--green);
+  border-color: rgba(15, 122, 74, 0.35);
 }
 
 .jobs-kicker {

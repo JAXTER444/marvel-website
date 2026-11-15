@@ -11,7 +11,7 @@
     "stats": {
       "placements": { "value": 1240, "label": "Successful Placements" },
       "years": { "value": 32, "suffix": "+", "label": "Years of combined experience" },
-      "vacancies": { "value": 25, "label": "Current vacancies" },
+      "vacancies": { "value": 25, "label": "Currently open vacancies" },
       "repeatRate": { "value": 82, "suffix": "%", "label": "Client Repeat Rate" }
     }
   },

@@ -116,7 +116,7 @@
 
     setText(labels.placements, stats.placements.label);
     setText(labels.years, stats.years.label);
-    setText(labels.vacancies, (vacancyStat && vacancyStat.label) || "Current vacancies");
+    setText(labels.vacancies, (vacancyStat && vacancyStat.label) || "Currently open vacancies");
     setText(labels.repeatRate, stats.repeatRate.label);
   }
 

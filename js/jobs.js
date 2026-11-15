@@ -774,6 +774,65 @@ function clearSelection() {
   }, 200);
 }
 
+const SHARE_ICON = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5.5 9.5L10.5 6.5M5.5 6.5L10.5 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="4" cy="8" r="2.25" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="4.5" r="2.25" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="11.5" r="2.25" stroke="currentColor" stroke-width="1.4"/></svg>`;
+
+function jobShareUrl(job) {
+  const url = new URL(location.href);
+  url.search = "";
+  url.hash = encodeURIComponent(String(job.id ?? ""));
+  return url.toString();
+}
+
+async function copyText(value) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(value);
+    return;
+  }
+  const field = document.createElement("textarea");
+  field.value = value;
+  field.setAttribute("readonly", "");
+  field.style.position = "fixed";
+  field.style.opacity = "0";
+  document.body.appendChild(field);
+  field.select();
+  document.execCommand("copy");
+  field.remove();
+}
+
+function setShareButtonState(button, label, { copied = false } = {}) {
+  if (!(button instanceof HTMLElement)) return;
+  button.classList.toggle("is-copied", copied);
+  button.setAttribute("aria-label", label);
+  button.innerHTML = `${SHARE_ICON}<span>${escapeHtml(label)}</span>`;
+}
+
+async function shareJob(job, button) {
+  const url = jobShareUrl(job);
+  const title = String(job.title ?? "Open role");
+  const company = String(job.companyName || "Marvel Placement Consultants");
+  const text = `${title} at ${company}`;
+
+  if (typeof navigator.share === "function") {
+    try {
+      await navigator.share({ title, text, url });
+      return;
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
+    }
+  }
+
+  try {
+    await copyText(url);
+    setShareButtonState(button, "Link copied", { copied: true });
+    window.setTimeout(() => {
+      if (selectedId !== job.id) return;
+      setShareButtonState(button, "Share");
+    }, 2000);
+  } catch {
+    window.prompt("Copy this job link:", url);
+  }
+}
+
 function renderDetail(job) {
   if (!detailEl || !applyAsideEl || !detailStage) return;
   detailStage.hidden = false;
@@ -793,9 +852,14 @@ function renderDetail(job) {
 
   detailEl.innerHTML = `
     <header class="job-detail-heading">
-      <button type="button" class="jobs-back" id="jobs-back">
-        <span aria-hidden="true">←</span> All roles
-      </button>
+      <div class="job-detail-heading-bar">
+        <button type="button" class="jobs-back" id="jobs-back">
+          <span aria-hidden="true">←</span> All roles
+        </button>
+        <button type="button" class="jobs-share" id="jobs-share" aria-label="Share">
+          ${SHARE_ICON}<span>Share</span>
+        </button>
+      </div>
       <p class="jobs-kicker">${escapeHtml(job.companyName || "Marvel Placement Consultants")}</p>
       <h2>${escapeHtml(job.title)}</h2>
     </header>
@@ -822,6 +886,12 @@ function renderDetail(job) {
 
   document.querySelector("#jobs-back")?.addEventListener("click", () => {
     clearSelection();
+  });
+
+  document.querySelector("#jobs-share")?.addEventListener("click", (event) => {
+    const button = event.currentTarget;
+    if (!(button instanceof HTMLElement)) return;
+    void shareJob(job, button);
   });
 }
 
